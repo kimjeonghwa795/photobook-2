@@ -1,8 +1,8 @@
 /**
  * App Styles
  *
- * React Native Starter App
- * https://github.com/mcnamee/react-native-starter-app
+ * Gotcha React Native Starter
+ * https://bitbucket.org/teamgotcha/gc
  */
 
 import Colors from './colors';
@@ -240,5 +240,11 @@ export default {
     backgroundColor: Colors.tabbar.background,
     borderTopColor: Colors.border,
     borderTopWidth: 1,
+  },
+
+  //Pinned footer
+  footer: {
+    justifyContent: 'space-between',
+    height: 50,
   },
 };

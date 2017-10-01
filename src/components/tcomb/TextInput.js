@@ -1,14 +1,15 @@
 /**
  * Text Input template for tcomb
  *
- * React Native Starter App
- * https://github.com/mcnamee/react-native-starter-app
+ * Gotcha React Native Starter
+ * https://bitbucket.org/teamgotcha/gc
  */
 import React from 'react';
 import { View } from 'react-native';
 
 // Components
 import { FormInput, FormLabel, FormValidationMessage } from '@ui/';
+import { AppSizes } from '@theme/';
 
 /* Component ==================================================================== */
 function textbox(locals) {
@@ -17,8 +18,7 @@ function textbox(locals) {
   }
 
   return (
-    <View>
-      {!!locals.label && <FormLabel>{locals.label}</FormLabel>}
+    <View style={[{width: AppSizes.screen.width * 0.85,}]}>
       <FormInput
         accessibilityLabel={locals.label}
         autoCapitalize={locals.autoCapitalize}
@@ -36,7 +36,7 @@ function textbox(locals) {
         onSelectionChange={locals.onSelectionChange}
         onSubmitEditing={locals.onSubmitEditing}
         onContentSizeChange={locals.onContentSizeChange}
-        placeholderTextColor={locals.placeholderTextColor}
+        placeholderTextColor={'grey'}
         secureTextEntry={locals.secureTextEntry}
         selectTextOnFocus={locals.selectTextOnFocus}
         selectionColor={locals.selectionColor}
@@ -51,7 +51,7 @@ function textbox(locals) {
         selectionState={locals.selectionState}
         onChangeText={value => locals.onChange(value)}
         onChange={locals.onChangeNative}
-        placeholder={locals.placeholder}
+        placeholder={locals.label}
         value={locals.value}
       />
       {!!locals.error && <FormValidationMessage>{locals.error}</FormValidationMessage>}

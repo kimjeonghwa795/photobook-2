@@ -2,8 +2,8 @@
  * Receipe Tabs Screen
  *  - Shows tabs, which contain receipe listings
  *
- * React Native Starter App
- * https://github.com/mcnamee/react-native-starter-app
+ * Gotcha React Native Starter
+ * https://bitbucket.org/teamgotcha/gc
  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';

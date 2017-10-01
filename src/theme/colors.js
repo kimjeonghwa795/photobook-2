@@ -1,8 +1,8 @@
 /**
  * App Theme - Colors
  *
- * React Native Starter App
- * https://github.com/mcnamee/react-native-starter-app
+ * Gotcha React Native Starter
+ * https://bitbucket.org/teamgotcha/gc
  */
 
 const app = {
@@ -13,7 +13,7 @@ const app = {
 
 const brand = {
   brand: {
-    primary: '#0E4EF8',
+    primary: '#39babd',
     secondary: '#17233D',
   },
 };

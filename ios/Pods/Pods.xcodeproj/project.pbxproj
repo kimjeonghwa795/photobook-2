@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2AA8B9830D4FB6A1BE53C884952E277B /* Pods-Photobook-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEF60D5F47AD4017F0C4ACACFF90158 /* Pods-Photobook-dummy.m */; };
+		96FA9081FC1FEB51D0A9460218E029DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		A9E8A3201076B43FFAA3F77412523004 /* Pods-PhotobookTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D7B645237D1FC3A5CFDC09235C7DA8 /* Pods-PhotobookTests-dummy.m */; };
+		ADAA31C64D4CB96045EE37413E346083 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		08E450DFBD4808921EA8A34B44D5BBB5 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = Frameworks/GoogleSignIn.framework; sourceTree = "<group>"; };
+		092B59FD3E02260546765E4085041CF1 /* Pods-Photobook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Photobook.debug.xcconfig"; sourceTree = "<group>"; };
+		0A5805035B40C64C3299B8159838421B /* Pods-PhotobookTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PhotobookTests-frameworks.sh"; sourceTree = "<group>"; };
+		0F49B43917C7F970BDB5D7BFC111CFAA /* Pods-Photobook-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Photobook-resources.sh"; sourceTree = "<group>"; };
+		35C9891B3C4531C21772D45C46B88E2D /* GoogleAuthUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAuthUtilities.framework; path = Frameworks/frameworks/GoogleAuthUtilities.framework; sourceTree = "<group>"; };
+		37621993811AE69345B0CE8B996B2B35 /* Pods-PhotobookTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PhotobookTests-resources.sh"; sourceTree = "<group>"; };
+		3A9AB37FA939445EE7FA99710BD4ABB3 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleSignIn.bundle; path = Resources/GoogleSignIn.bundle; sourceTree = "<group>"; };
+		438030579E1A1491BC73CC6357D7BD78 /* Pods-PhotobookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PhotobookTests.release.xcconfig"; sourceTree = "<group>"; };
+		51D53683AD76530810C488E756BD691D /* Pods-PhotobookTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PhotobookTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		5AEF60D5F47AD4017F0C4ACACFF90158 /* Pods-Photobook-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Photobook-dummy.m"; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		67058E0A9468F1B68A5F4692C4577291 /* GoogleAppUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAppUtilities.framework; path = Frameworks/frameworks/GoogleAppUtilities.framework; sourceTree = "<group>"; };
+		76FE24D354A16F3111770AA83FCBF3C9 /* Pods-Photobook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Photobook.release.xcconfig"; sourceTree = "<group>"; };
+		7ACDA476302CC1ACDFEA49F8C05433B2 /* Pods-Photobook-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Photobook-acknowledgements.markdown"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9CEF85AD2D809D726F67278F17F3544B /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		A715AB46D1E539311272D1F2E56304CF /* Pods-PhotobookTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PhotobookTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		AF8A20A15D10595FBDAE30E07F5D7721 /* Pods-Photobook-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Photobook-acknowledgements.plist"; sourceTree = "<group>"; };
+		B587F585093D4C104F74D90B0795B357 /* libPods-Photobook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Photobook.a"; path = "libPods-Photobook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B858504E4FB10BFC74AC22F69A216AB4 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
+		BEC36EAEEEFE823A6E1D5E4E8E5E9B4C /* Pods-PhotobookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PhotobookTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C4684204D2A6BAFB199FC71A850A65C0 /* GTMOAuth2ViewTouch.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = GTMOAuth2ViewTouch.xib; path = Frameworks/frameworks/GoogleAuthUtilities.framework/Resources/GTMOAuth2ViewTouch.xib; sourceTree = "<group>"; };
+		D3D7B645237D1FC3A5CFDC09235C7DA8 /* Pods-PhotobookTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PhotobookTests-dummy.m"; sourceTree = "<group>"; };
+		DA9D97466F5A1126A9EA55B46B7A72B6 /* libPods-PhotobookTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-PhotobookTests.a"; path = "libPods-PhotobookTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E826354571F886BDF5FBEC50412441D7 /* Pods-Photobook-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Photobook-frameworks.sh"; sourceTree = "<group>"; };
+		EBC2635DCB4F99BF87A06274A0654055 /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleNetworkingUtilities.framework; path = Frameworks/frameworks/GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		12219F4E4EDA29916835A0428AC070CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADAA31C64D4CB96045EE37413E346083 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3934A03EE0F4391D7CAE9A191548C2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96FA9081FC1FEB51D0A9460218E029DC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FF6F10861E9E17E31B3B8432427BB6 /* GoogleAuthUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				F0AA4696FA50152EA21CA64162CEB0DF /* Frameworks */,
+				9FF101990FF5293ECF8A3AC28973884C /* Resources */,
+			);
+			name = GoogleAuthUtilities;
+			path = GoogleAuthUtilities;
+			sourceTree = "<group>";
+		};
+		3238A3B873F6419BD8DD45B907137C4D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B858504E4FB10BFC74AC22F69A216AB4 /* GoogleUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7A42C27A6A3F429F90BCA5A7212137F3 /* Pods-Photobook */ = {
+			isa = PBXGroup;
+			children = (
+				7ACDA476302CC1ACDFEA49F8C05433B2 /* Pods-Photobook-acknowledgements.markdown */,
+				AF8A20A15D10595FBDAE30E07F5D7721 /* Pods-Photobook-acknowledgements.plist */,
+				5AEF60D5F47AD4017F0C4ACACFF90158 /* Pods-Photobook-dummy.m */,
+				E826354571F886BDF5FBEC50412441D7 /* Pods-Photobook-frameworks.sh */,
+				0F49B43917C7F970BDB5D7BFC111CFAA /* Pods-Photobook-resources.sh */,
+				092B59FD3E02260546765E4085041CF1 /* Pods-Photobook.debug.xcconfig */,
+				76FE24D354A16F3111770AA83FCBF3C9 /* Pods-Photobook.release.xcconfig */,
+			);
+			name = "Pods-Photobook";
+			path = "Target Support Files/Pods-Photobook";
+			sourceTree = "<group>";
+		};
+		7A94CD14B3733D351BE3C26B4F94A196 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9CEF85AD2D809D726F67278F17F3544B /* GoogleSymbolUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				930C58758520009D481BB7AA4A43B776 /* Pods */,
+				85E22585B74EA4CCA691D875E0DDA454 /* Products */,
+				884C1F038737B9C003FE0D7469DBA067 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		85E22585B74EA4CCA691D875E0DDA454 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B587F585093D4C104F74D90B0795B357 /* libPods-Photobook.a */,
+				DA9D97466F5A1126A9EA55B46B7A72B6 /* libPods-PhotobookTests.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		87CEDCF93A5388EFF63A0D6495FEC829 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				67058E0A9468F1B68A5F4692C4577291 /* GoogleAppUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		884C1F038737B9C003FE0D7469DBA067 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7A42C27A6A3F429F90BCA5A7212137F3 /* Pods-Photobook */,
+				D29E8FC62914D339B7235514A85108C4 /* Pods-PhotobookTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		8ED107CB7878FF5D9EA07029458B10E4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3A9AB37FA939445EE7FA99710BD4ABB3 /* GoogleSignIn.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		930C58758520009D481BB7AA4A43B776 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B07FEC6B77C670CF2B4EF9CFF059B85B /* GoogleAppUtilities */,
+				08FF6F10861E9E17E31B3B8432427BB6 /* GoogleAuthUtilities */,
+				9D94973F80E57589399AC0CD45C8509E /* GoogleNetworkingUtilities */,
+				B962F0107C208DE7BA939913A346955E /* GoogleSignIn */,
+				C7CE1FC38D28E897EF56F3AF30287F9E /* GoogleSymbolUtilities */,
+				BA45229A28FDF46D6827F71DC2F5889F /* GoogleUtilities */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9D94973F80E57589399AC0CD45C8509E /* GoogleNetworkingUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				DCBFDC1B2D59B736DE68E277C8F05B5B /* Frameworks */,
+			);
+			name = GoogleNetworkingUtilities;
+			path = GoogleNetworkingUtilities;
+			sourceTree = "<group>";
+		};
+		9FF101990FF5293ECF8A3AC28973884C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C4684204D2A6BAFB199FC71A850A65C0 /* GTMOAuth2ViewTouch.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		B07FEC6B77C670CF2B4EF9CFF059B85B /* GoogleAppUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				87CEDCF93A5388EFF63A0D6495FEC829 /* Frameworks */,
+			);
+			name = GoogleAppUtilities;
+			path = GoogleAppUtilities;
+			sourceTree = "<group>";
+		};
+		B962F0107C208DE7BA939913A346955E /* GoogleSignIn */ = {
+			isa = PBXGroup;
+			children = (
+				DC38DDB16EC6CBC42E1674876D46BB1F /* Frameworks */,
+				8ED107CB7878FF5D9EA07029458B10E4 /* Resources */,
+			);
+			name = GoogleSignIn;
+			path = GoogleSignIn;
+			sourceTree = "<group>";
+		};
+		BA45229A28FDF46D6827F71DC2F5889F /* GoogleUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				3238A3B873F6419BD8DD45B907137C4D /* Frameworks */,
+			);
+			name = GoogleUtilities;
+			path = GoogleUtilities;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7CE1FC38D28E897EF56F3AF30287F9E /* GoogleSymbolUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				7A94CD14B3733D351BE3C26B4F94A196 /* Frameworks */,
+			);
+			name = GoogleSymbolUtilities;
+			path = GoogleSymbolUtilities;
+			sourceTree = "<group>";
+		};
+		D29E8FC62914D339B7235514A85108C4 /* Pods-PhotobookTests */ = {
+			isa = PBXGroup;
+			children = (
+				A715AB46D1E539311272D1F2E56304CF /* Pods-PhotobookTests-acknowledgements.markdown */,
+				51D53683AD76530810C488E756BD691D /* Pods-PhotobookTests-acknowledgements.plist */,
+				D3D7B645237D1FC3A5CFDC09235C7DA8 /* Pods-PhotobookTests-dummy.m */,
+				0A5805035B40C64C3299B8159838421B /* Pods-PhotobookTests-frameworks.sh */,
+				37621993811AE69345B0CE8B996B2B35 /* Pods-PhotobookTests-resources.sh */,
+				BEC36EAEEEFE823A6E1D5E4E8E5E9B4C /* Pods-PhotobookTests.debug.xcconfig */,
+				438030579E1A1491BC73CC6357D7BD78 /* Pods-PhotobookTests.release.xcconfig */,
+			);
+			name = "Pods-PhotobookTests";
+			path = "Target Support Files/Pods-PhotobookTests";
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		DC38DDB16EC6CBC42E1674876D46BB1F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08E450DFBD4808921EA8A34B44D5BBB5 /* GoogleSignIn.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DCBFDC1B2D59B736DE68E277C8F05B5B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBC2635DCB4F99BF87A06274A0654055 /* GoogleNetworkingUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F0AA4696FA50152EA21CA64162CEB0DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				35C9891B3C4531C21772D45C46B88E2D /* GoogleAuthUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0284C8D70C2A57AACF3638799414C21B /* Pods-PhotobookTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1DCA4AD5984067EA85FC94A391F0E04 /* Build configuration list for PBXNativeTarget "Pods-PhotobookTests" */;
+			buildPhases = (
+				4853A4E85133B860C5CD5E6063E489EE /* Sources */,
+				F3934A03EE0F4391D7CAE9A191548C2D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-PhotobookTests";
+			productName = "Pods-PhotobookTests";
+			productReference = DA9D97466F5A1126A9EA55B46B7A72B6 /* libPods-PhotobookTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		DAF2625749779ABC4B908B737354A754 /* Pods-Photobook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88207FA8DCE2B27E17212F302B92303D /* Build configuration list for PBXNativeTarget "Pods-Photobook" */;
+			buildPhases = (
+				EB06286DD200760E4DB5F371995EA764 /* Sources */,
+				12219F4E4EDA29916835A0428AC070CE /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Photobook";
+			productName = "Pods-Photobook";
+			productReference = B587F585093D4C104F74D90B0795B357 /* libPods-Photobook.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 85E22585B74EA4CCA691D875E0DDA454 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DAF2625749779ABC4B908B737354A754 /* Pods-Photobook */,
+				0284C8D70C2A57AACF3638799414C21B /* Pods-PhotobookTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4853A4E85133B860C5CD5E6063E489EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9E8A3201076B43FFAA3F77412523004 /* Pods-PhotobookTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB06286DD200760E4DB5F371995EA764 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AA8B9830D4FB6A1BE53C884952E277B /* Pods-Photobook-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		116F6D81686CD5D4AF2B64936028EF04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC36EAEEEFE823A6E1D5E4E8E5E9B4C /* Pods-PhotobookTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		45FC2B6BC784D8CC9490B58A9CAE7720 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 438030579E1A1491BC73CC6357D7BD78 /* Pods-PhotobookTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AB9C1F10D10449BAD1D891C94B06C915 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76FE24D354A16F3111770AA83FCBF3C9 /* Pods-Photobook.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B254DAA6CF0CE39F4A3D11B90A7E059A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		D14C24C178E50AA414FB9C3219147CB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 092B59FD3E02260546765E4085041CF1 /* Pods-Photobook.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E4B68EE12B21C47CB798D9B1ECA6D7A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4B68EE12B21C47CB798D9B1ECA6D7A7 /* Debug */,
+				B254DAA6CF0CE39F4A3D11B90A7E059A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88207FA8DCE2B27E17212F302B92303D /* Build configuration list for PBXNativeTarget "Pods-Photobook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D14C24C178E50AA414FB9C3219147CB9 /* Debug */,
+				AB9C1F10D10449BAD1D891C94B06C915 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1DCA4AD5984067EA85FC94A391F0E04 /* Build configuration list for PBXNativeTarget "Pods-PhotobookTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				116F6D81686CD5D4AF2B64936028EF04 /* Debug */,
+				45FC2B6BC784D8CC9490B58A9CAE7720 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

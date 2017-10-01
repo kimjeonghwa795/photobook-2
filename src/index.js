@@ -2,8 +2,8 @@
  * Index - this is where everything
  *  starts - but offloads to app.js
  *
- * React Native Starter App
- * https://github.com/mcnamee/react-native-starter-app
+ * Gotcha React Native Starter
+ * https://bitbucket.org/teamgotcha/gc
  */
 /* global __DEV__ */
 import React from 'react';

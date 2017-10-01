@@ -1,9 +1,9 @@
-[![GitHub tag](https://img.shields.io/github/tag/mcnamee/react-native-starter-app.svg?style=flat-square)](https://github.com/mcnamee/react-native-starter-app/tags)
-[![GitHub contributors](https://img.shields.io/github/contributors/mcnamee/react-native-starter-app.svg?style=flat-square)](https://github.com/mcnamee/react-native-starter-app/contributors)
+[![GitHub tag](https://img.shields.io/github/tag/mcnamee/react-native-starter-app.svg?style=flat-square)](https://bitbucket.org/teamgotcha/gc/tags)
+[![GitHub contributors](https://img.shields.io/github/contributors/mcnamee/react-native-starter-app.svg?style=flat-square)](https://bitbucket.org/teamgotcha/gc/contributors)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/mcnamee/react-native-starter-app/master/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/mcnamee/react-native-starter-app.svg?style=flat-square)](https://github.com/mcnamee/react-native-starter-app/issues)
-[![GitHub closed issues](https://img.shields.io/github/issues-closed/mcnamee/react-native-starter-app.svg?style=flat-square)](https://github.com/mcnamee/react-native-starter-app/issues-closed)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/mcnamee/react-native-starter-app.svg?style=flat-square)](https://github.com/mcnamee/react-native-starter-app/issues-pr)
+[![GitHub issues](https://img.shields.io/github/issues/mcnamee/react-native-starter-app.svg?style=flat-square)](https://bitbucket.org/teamgotcha/gc/issues)
+[![GitHub closed issues](https://img.shields.io/github/issues-closed/mcnamee/react-native-starter-app.svg?style=flat-square)](https://bitbucket.org/teamgotcha/gc/issues-closed)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/mcnamee/react-native-starter-app.svg?style=flat-square)](https://bitbucket.org/teamgotcha/gc/issues-pr)
 
 ![alt text](/docs/rnsk-logo.jpg "React Native Starter Kit")
 
@@ -13,7 +13,7 @@ React Native Starter Kit helps you get started with React Native. It contains a 
 
 What's more, it's now integrated with [Firebase](https://firebase.google.com/), to help you kick start your next full-stack product.
 
-![alt text](/docs/rnsk-screens.jpg "React Native Starter App")
+![alt text](/docs/rnsk-screens.jpg "Gotcha React Native Starter")
 
 ---
 
@@ -58,7 +58,7 @@ What's more, it's now integrated with [Firebase](https://firebase.google.com/), 
 ## Getting Started
 
 1. Ensure you've followed the [React Native - Get Started Guide](https://facebook.github.io/react-native/docs/getting-started.html) for the platform/s of choice
-1. Clone this project `git clone https://github.com/mcnamee/react-native-starter-app.git`
+1. Clone this project `git clone https://bitbucket.org/teamgotcha/gc.git`
 1. Run `npm install` from root directory
 1. Create your own .env file (to store any app secrets) - simply run `cp .env.sample .env`
 1. [Setup your own Firebase API to get the full experience](#the-api--testing-out-authentication) (optional)
@@ -70,7 +70,7 @@ What's more, it's now integrated with [Firebase](https://firebase.google.com/), 
 We've created a quick little "API server" on [Google's Firebase Platform](https://firebase.google.com/). You can get your own API up and running within minutes too:
 
 1. Signup for a [Firebase account](https://firebase.google.com/)
-1. Create a new project - eg. "React Native Starter App"
+1. Create a new project - eg. "Gotcha React Native Starter"
 1. Turn on email/password __Authentication__
 1. Enable the __Database__ feature, and import the `firebase-sample-data.json` file found in this repo
 1. Get the Firebase project's API credentials, and add them to the respective variables in your `/.env` file (eg. `APIKEY=d8f72k10s39djk29js`). You can get your projects details from Firebase, by clicking on the cog icon, next to overview > 'Add Firebase to your web app'.
