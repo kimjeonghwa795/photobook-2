@@ -4,7 +4,7 @@
 /* global it expect */
 import 'react-native';
 
-import BrowseContainer from '@containers/recipes/Browse/BrowseContainer';
+import BrowseContainer from '@containers/photobook/Browse/BrowseContainer';
 
 // Check if BrowseContainer is created correctly
 it('BrowseContainer is created correctly', () => {

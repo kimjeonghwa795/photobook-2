@@ -6,7 +6,7 @@
  */
 import { AsyncStorage } from 'react-native';
 import { ErrorMessages, Firebase, FirebaseRef } from '@constants/';
-import * as RecipeActions from '../recipes/actions';
+import * as RecipeActions from '../photobook/actions';
 
 /**
   * Get Login Credentials from AsyncStorage

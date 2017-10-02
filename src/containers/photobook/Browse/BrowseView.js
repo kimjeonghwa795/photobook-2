@@ -18,7 +18,8 @@ import { TabViewAnimated, TabBar } from 'react-native-tab-view';
 import { AppColors } from '@theme/';
 
 // Containers
-import RecipeListing from '@containers/recipes/Listing/ListingContainer';
+import RecipeListing from '@containers/photobook/Listing/ListingContainer';
+import NewBook from '@containers/photobook/NewBook/NewBookContainer';
 
 // Components
 import { Text } from '@ui/';
@@ -43,15 +44,15 @@ const styles = StyleSheet.create({
 
 /* Component ==================================================================== */
 let loadingTimeout;
-class RecipeTabs extends Component {
-  static componentName = 'RecipeTabs';
+class PhotobookTabs extends Component {
+  static componentName = 'PhotobookTabs';
 
   static propTypes = {
-    meals: PropTypes.arrayOf(PropTypes.object).isRequired,
+    tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
   }
 
   static defaultProps = {
-    meals: [],
+    tabs: [],
   }
 
   constructor(props) {
@@ -75,16 +76,16 @@ class RecipeTabs extends Component {
   componentWillUnmount = () => clearTimeout(loadingTimeout);
 
   /**
-    * When meals are ready, populate tabs
+    * When tabs are ready, populate tabs
     */
   setTabs = () => {
     const routes = [];
     let idx = 0;
-    this.props.meals.forEach((meal) => {
+    this.props.tabs.forEach((tab) => {
       routes.push({
         key: idx.toString(),
-        id: meal.id.toString(),
-        title: meal.title,
+        id: tab.id.toString(),
+        title: tab.title,
       });
 
       idx += 1;
@@ -144,13 +145,19 @@ class RecipeTabs extends Component {
     }
 
     // Which component should be loaded?
-    return (
-      <View style={styles.tabContainer}>
-        <RecipeListing
-          meal={route.id}
-        />
-      </View>
-    );
+    if (parseInt(route.key, 0) === 0){
+        return (
+          <View style={styles.tabContainer}>
+            <NewBook/>
+          </View>
+        );
+    }
+    else if (parseInt(route.key, 0) === 1){
+      return (
+        <View style={styles.tabContainer}>
+        </View>
+      );
+    }
   }
 
   render = () => {
@@ -169,4 +176,4 @@ class RecipeTabs extends Component {
 }
 
 /* Export Component ==================================================================== */
-export default RecipeTabs;
+export default PhotobookTabs;

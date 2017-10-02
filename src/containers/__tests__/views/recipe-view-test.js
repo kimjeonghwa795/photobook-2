@@ -6,7 +6,7 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import RecipeView from '@containers/recipes/RecipeView';
+import RecipeView from '@containers/photobook/RecipeView';
 
 it('RecipeView renders correctly', () => {
   const thisRecipe = {

@@ -4,7 +4,7 @@
 /* global it expect */
 import 'react-native';
 
-import CardContainer from '@containers/recipes/Card/CardContainer';
+import CardContainer from '@containers/photobook/Card/CardContainer';
 
 // Check if CardContainer is created correctly
 it('CardContainer is created correctly', () => {

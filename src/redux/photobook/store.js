@@ -5,9 +5,9 @@
  * https://bitbucket.org/teamgotcha/gc
  */
 export default {
-  meals: [
-    { id: 1, title: 'Lunch' },
-    { id: 2, title: 'Dinner' },
+  tabs: [
+    { id: 1, title: 'New' },
+    { id: 2, title: 'History' },
   ],
   recipes: [
     {

@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 // Actions
-import * as RecipeActions from '@redux/recipes/actions';
+import * as RecipeActions from '@redux/photobook/actions';
 
 // Components
 import Loading from '@components/general/Loading';
@@ -18,7 +18,7 @@ import RecipeListingRender from './ListingView';
 /* Redux ==================================================================== */
 // What data from the store shall we send to the component?
 const mapStateToProps = state => ({
-  recipes: state.recipe.recipes || [],
+  recipes: state.photobook.recipes || [],
 });
 
 // Any actions to map to the component?
@@ -77,7 +77,7 @@ class MealListing extends Component {
 
     return (
       <RecipeListingRender
-        recipes={this.state.recipes}
+        recipes={this.state.photobook}
         reFetch={this.fetchRecipes}
       />
     );

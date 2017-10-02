@@ -6,7 +6,7 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import ListingView from '@containers/recipes/Listing/ListingView';
+import ListingView from '@containers/photobook/Listing/ListingView';
 
 it('ListingView renders correctly', () => {
   const theseRecipes = [

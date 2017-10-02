@@ -6,7 +6,7 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import CardView from '@containers/recipes/Card/CardView';
+import CardView from '@containers/photobook/Card/CardView';
 
 it('CardView renders correctly', () => {
   const tree = renderer.create(

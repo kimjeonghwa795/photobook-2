@@ -6,7 +6,7 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import BrowseView from '@containers/recipes/Browse/BrowseView';
+import BrowseView from '@containers/photobook/Browse/BrowseView';
 
 it('BrowseView renders correctly', () => {
   // getMeals prop expects a promise

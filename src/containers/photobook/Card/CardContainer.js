@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
 // Actions
-import * as RecipeActions from '@redux/recipes/actions';
+import * as RecipeActions from '@redux/photobook/actions';
 
 // Components
 import RecipeCardRender from './CardView';
@@ -19,7 +19,7 @@ import RecipeCardRender from './CardView';
 // What data from the store shall we send to the component?
 const mapStateToProps = state => ({
   user: state.user,
-  favourites: (state.recipe && state.recipe.favourites) ? state.recipe.favourites : null,
+  favourites: (state.photobook && state.photobook.favourites) ? state.photobook.favourites : null,
 });
 
 // Any actions to map to the component?
@@ -92,7 +92,7 @@ class RecipeCard extends Component {
         this.props.replaceFavourites(favs);
 
         // Manually trigger a re-render - I wish I knew why this was required...
-        this.setState({ recipe: this.state.recipe });
+        this.setState({ recipe: this.state.photobook });
       }
     }
   }

@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 
 // Actions
 import * as UserActions from '@redux/user/actions';
-import * as RecipeActions from '@redux/recipes/actions';
+import * as RecipeActions from '@redux/photobook/actions';
 
 // The component we're mapping to
 import AppLaunchRender from './LaunchView';

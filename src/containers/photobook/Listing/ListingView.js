@@ -18,7 +18,7 @@ import { AppColors, AppStyles } from '@theme/';
 import { ErrorMessages } from '@constants/';
 
 // Containers
-import RecipeCard from '@containers/recipes/Card/CardContainer';
+import RecipeCard from '@containers/photobook/Card/CardContainer';
 
 // Components
 import Error from '@components/general/Error';

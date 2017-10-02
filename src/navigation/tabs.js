@@ -19,8 +19,8 @@ import { NavbarMenuButton } from '@containers/ui/NavbarMenuButton/NavbarMenuButt
 import Placeholder from '@components/general/Placeholder';
 import Error from '@components/general/Error';
 import StyleGuide from '@containers/StyleGuideView';
-import Recipes from '@containers/recipes/Browse/BrowseContainer';
-import RecipeView from '@containers/recipes/RecipeView';
+import Photobook from '@containers/photobook/Browse/BrowseContainer';
+import RecipeView from '@containers/photobook/RecipeView';
 
 const navbarPropsTabs = {
   ...AppConfig.navbarProps,
@@ -34,18 +34,18 @@ const navbarPropsTabs = {
 /* Routes ==================================================================== */
 const scenes = (
   <Scene key={'tabBar'} tabs tabBarIconContainerStyle={AppStyles.tabbar} pressOpacity={0.95}>
-    <Scene
-      {...navbarPropsTabs}
-      key={'recipes'}
-      title={'Recipes'}
-      icon={props => TabIcon({ ...props, icon: 'search' })}
-    >
+      <Scene
+        {...navbarPropsTabs}
+        key={'photobook'}
+        title={'Photobook'}
+        icon={props => TabIcon({ ...props, icon: 'search' })}
+      >
       <Scene
         {...navbarPropsTabs}
         key={'recipesListing'}
-        component={Recipes}
-        title={'Recipes'}
-        analyticsDesc={'Recipes: Browse Recipes'}
+        component={Photobook}
+        title={'Photobook'}
+        analyticsDesc={'Create Photobook'}
       />
       <Scene
         {...AppConfig.navbarProps}
