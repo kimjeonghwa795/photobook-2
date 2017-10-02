@@ -33,7 +33,7 @@ import * as UserActions from '@redux/user/actions'
 const mapStateToProps = state => ({
   user: state.user,
   formType: 'login',
-  formFields: ['Email', 'Password'],
+  formFields: ['EMAIL', 'PASSWORD'],
   buttonTitle: 'Login',
   successMessage: 'Awesome, you\'re now logged in',
 });

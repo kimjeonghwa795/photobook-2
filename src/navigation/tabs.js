@@ -18,7 +18,7 @@ import { NavbarMenuButton } from '@containers/ui/NavbarMenuButton/NavbarMenuButt
 // Scenes
 import Placeholder from '@components/general/Placeholder';
 import Error from '@components/general/Error';
-import StyleGuide from '@containers/StyleGuideView';
+import Profile from '@containers/ProfileView';
 import Photobook from '@containers/photobook/Browse/BrowseContainer';
 import RecipeView from '@containers/photobook/RecipeView';
 
@@ -38,7 +38,7 @@ const scenes = (
         {...navbarPropsTabs}
         key={'photobook'}
         title={'Photobook'}
-        icon={props => TabIcon({ ...props, icon: 'search' })}
+        icon={props => TabIcon({ ...props, icon: 'photo-album' })}
       >
       <Scene
         {...navbarPropsTabs}
@@ -75,12 +75,12 @@ const scenes = (
     />
 
     <Scene
-      key={'styleGuide'}
+      key={'Profile'}
       {...navbarPropsTabs}
-      title={'Style Guide'}
-      component={StyleGuide}
-      icon={props => TabIcon({ ...props, icon: 'speaker-notes' })}
-      analyticsDesc={'StyleGuide: Style Guide'}
+      title={'Profile'}
+      component={Profile}
+      icon={props => TabIcon({ ...props, icon: 'person' })}
+      analyticsDesc={'Profile: Profile'}
     />
   </Scene>
 );
