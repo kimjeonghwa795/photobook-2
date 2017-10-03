@@ -20,6 +20,7 @@ import Placeholder from '@components/general/Placeholder';
 import Error from '@components/general/Error';
 import Profile from '@containers/ProfileView';
 import Photobook from '@containers/photobook/Browse/BrowseContainer';
+import TemplateList from '@containers/photobook/Template/TemplateListContainer';
 import RecipeView from '@containers/photobook/RecipeView';
 
 const navbarPropsTabs = {
@@ -34,18 +35,18 @@ const navbarPropsTabs = {
 /* Routes ==================================================================== */
 const scenes = (
   <Scene key={'tabBar'} tabs tabBarIconContainerStyle={AppStyles.tabbar} pressOpacity={0.95}>
+    <Scene
+      {...navbarPropsTabs}
+      key={'photobook'}
+      title={'Photobook'}
+      icon={props => TabIcon({ ...props, icon: 'photo-album' })}
+    >
       <Scene
         {...navbarPropsTabs}
-        key={'photobook'}
-        title={'Photobook'}
-        icon={props => TabIcon({ ...props, icon: 'photo-album' })}
-      >
-      <Scene
-        {...navbarPropsTabs}
-        key={'recipesListing'}
+        key={'templateList'}
         component={Photobook}
-        title={'Photobook'}
-        analyticsDesc={'Create Photobook'}
+        title={'Choose a template'}
+        analyticsDesc={'Choose a template'}
       />
       <Scene
         {...AppConfig.navbarProps}

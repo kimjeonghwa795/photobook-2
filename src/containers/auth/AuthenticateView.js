@@ -157,7 +157,7 @@ class Authenticate extends Component {
       <View style={[AppStyles.containerCentered, AppStyles.container, styles.background]}>
         <View style={[AppStyles.containerCentered, AppStyles.flex1]}>
           <Text p style={[AppStyles.textCenterAligned, AppStyles.h2]}>
-            Chatbooks
+            Photobook
           </Text>
           
           <Image

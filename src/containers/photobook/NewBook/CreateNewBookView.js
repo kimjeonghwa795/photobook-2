@@ -11,6 +11,7 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 // Components
 import { Button } from '@ui/';
@@ -51,6 +52,7 @@ class NewBook extends Component {
         <View style={[AppStyles.row, styles.createButton]}>
             <View style={[AppStyles.flex1]}>
               <Button
+                onPress={Actions.templateList}
                 title={'Create Photobook'}
                 backgroundColor={'#16214d'}
               />

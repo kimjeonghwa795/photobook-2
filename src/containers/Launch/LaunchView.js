@@ -36,8 +36,8 @@ class AppLaunch extends Component {
 
   static propTypes = {
     login: PropTypes.func.isRequired,
-    getRecipes: PropTypes.func.isRequired,
-    getMeals: PropTypes.func.isRequired,
+    getTemplates: PropTypes.func.isRequired,
+    getTabs: PropTypes.func.isRequired,
   }
 
   constructor() {
@@ -51,8 +51,8 @@ class AppLaunch extends Component {
 
     // Preload content here
     Promise.all([
-      this.props.getMeals(),
-      this.props.getRecipes(),
+      this.props.getTabs(),
+      this.props.getTemplates(),
     ]).then(() => {
       // Once we've preloaded basic content,
       // - Try to authenticate based on existing token

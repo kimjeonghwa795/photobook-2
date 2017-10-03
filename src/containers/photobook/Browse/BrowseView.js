@@ -18,7 +18,7 @@ import { TabViewAnimated, TabBar } from 'react-native-tab-view';
 import { AppColors } from '@theme/';
 
 // Containers
-import RecipeListing from '@containers/photobook/Listing/ListingContainer';
+import TemplateList from '@containers/photobook/Template/TemplateListContainer';
 import NewBook from '@containers/photobook/NewBook/NewBookContainer';
 
 // Components
@@ -155,6 +155,9 @@ class PhotobookTabs extends Component {
     else if (parseInt(route.key, 0) === 1){
       return (
         <View style={styles.tabContainer}>
+          <TemplateList
+            tab={route.id}
+          />
         </View>
       );
     }

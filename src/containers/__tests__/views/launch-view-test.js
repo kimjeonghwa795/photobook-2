@@ -17,8 +17,8 @@ it('LaunchView renders correctly', () => {
   const tree = renderer.create(
     <LaunchView
       login={() => mockPromise}
-      getRecipes={() => mockPromise}
-      getMeals={() => mockPromise}
+      getTemplates={() => mockPromise}
+      getTabs={() => mockPromise}
     />,
   ).toJSON();
 

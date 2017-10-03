@@ -50,40 +50,40 @@ export function replaceFavourites(newFavourites) {
 }
 
 /**
-  * Get Meals
+  * Get Tabs
   */
-export function getMeals() {
+export function getTabs() {
   if (Firebase === null) return () => new Promise(resolve => resolve());
 
   return dispatch => new Firebase.Promise((resolve) => {
-    const ref = FirebaseRef.child('meals');
+    const ref = FirebaseRef.child('tabs');
 
     return ref.once('value').then((snapshot) => {
-      const meals = snapshot.val() || {};
+      const tabs = snapshot.val() || {};
 
       return resolve(dispatch({
-        type: 'MEALS_REPLACE',
-        data: meals,
+        type: 'TABS_REPLACE',
+        data: tabs,
       }));
     });
   });
 }
 
 /**
-  * Get Recipes
+  * Get Templates
   */
-export function getRecipes() {
+export function getTemplates() {
   if (Firebase === null) return () => new Promise(resolve => resolve());
 
   return dispatch => new Firebase.Promise((resolve) => {
-    const ref = FirebaseRef.child('recipes');
+    const ref = FirebaseRef.child('templates');
 
     return ref.on('value', (snapshot) => {
-      const recipes = snapshot.val() || {};
+      const templates = snapshot.val() || {};
 
       return resolve(dispatch({
-        type: 'RECIPES_REPLACE',
-        data: recipes,
+        type: 'TEMPLATES_REPLACE',
+        data: templates,
       }));
     });
   });

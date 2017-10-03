@@ -3,17 +3,17 @@
   },
   "favourites": {
   },
-  "meals": [
+  "tabs": [
     {
       "id": 1,
-      "title": "Lunch"
+      "title": "New"
     },
     {
       "id": 2,
-      "title": "Dinner"
+      "title": "History"
     }
   ],
-  "recipes" : [
+  "templates" : [
     {
       "id": 1,
       "slug": "this-is-an-article",

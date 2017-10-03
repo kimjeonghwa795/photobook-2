@@ -9,13 +9,13 @@ import renderer from 'react-test-renderer';
 import BrowseView from '@containers/photobook/Browse/BrowseView';
 
 it('BrowseView renders correctly', () => {
-  // getMeals prop expects a promise
+  // getTabs prop expects a promise
   const mockPromise = new Promise((resolve) => {
     resolve();
   });
 
   const tree = renderer.create(
-    <BrowseView getMeals={() => mockPromise} />,
+    <BrowseView getTabs={() => mockPromise} />,
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

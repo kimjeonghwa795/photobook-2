@@ -9,7 +9,7 @@ export default {
     { id: 1, title: 'New' },
     { id: 2, title: 'History' },
   ],
-  recipes: [
+  templates: [
     {
       id: 1,
       slug: 'this-is-an-article',

@@ -17,18 +17,18 @@ export default function recipeReducer(state = initialState, action) {
         favourites: action.data || [],
       };
     }
-    case 'MEALS_REPLACE': {
+    case 'TABS_REPLACE': {
       return {
         ...state,
-        meals: action.data,
+        tabs: action.data,
       };
     }
-    case 'RECIPES_REPLACE': {
-      let recipes = [];
+    case 'TEMPLATES_REPLACE': {
+      let templates = [];
 
       // Pick out the props I need
       if (action.data && typeof action.data === 'object') {
-        recipes = action.data.map(item => ({
+        templates = action.data.map(item => ({
           id: item.id,
           title: item.title,
           body: item.body,
@@ -42,7 +42,7 @@ export default function recipeReducer(state = initialState, action) {
 
       return {
         ...state,
-        recipes,
+        templates,
       };
     }
     default:
