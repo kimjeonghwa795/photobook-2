@@ -11,7 +11,8 @@ import {
   View,
   Image,
   StyleSheet,
-  TouchableHighlight,
+  TouchableOpacity,
+  Text,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
@@ -19,12 +20,14 @@ import FormValidation from 'tcomb-form-native';
 import TcombTextInput from '@components/tcomb/TextInput';
 import stylesheet from 'tcomb-form-native/lib/stylesheets/bootstrap';
 import GoogleSignIn from 'react-native-google-sign-in';
+import { SocialIcon } from 'react-native-elements';
+import { LoginManager } from 'react-native-fbsdk';
 
 // Consts and Libs
 import { AppStyles, AppSizes, AppColors } from '@theme/';
 
 // Components
-import { Spacer, Text, Button } from '@ui/';
+import { Spacer, Button } from '@ui/';
 
 // Actions
 import * as UserActions from '@redux/user/actions'
@@ -33,7 +36,7 @@ import * as UserActions from '@redux/user/actions'
 const mapStateToProps = state => ({
   user: state.user,
   formType: 'login',
-  formFields: ['EMAIL', 'PASSWORD'],
+  formFields: ['Email', 'Password'],
   buttonTitle: 'Login',
   successMessage: 'Awesome, you\'re now logged in',
 });
@@ -50,16 +53,32 @@ const styles = StyleSheet.create({
     height: AppSizes.screen.height,
     width: AppSizes.screen.width,
   },
-  loginLogo: {
-    marginLeft: 5,
-    marginRight: 5,
+  title1: {
+    color: '#fff',
+    backgroundColor: '#39babd',
+    fontSize: 40,
   },
-  logo: {
-    width: AppSizes.screen.width * 0.5,
-    resizeMode: 'contain',
+  title2: {
+    color: '#39babd',
+    backgroundColor: '#fff',
+    fontSize: 40,
+  },
+  thinFont: {
+    fontWeight:'300',
   },
   whiteText: {
     color: '#FFF',
+  },
+  socialIcon: {
+    height: 52,
+    width: 52,
+  },
+  container: {
+    margin: 7,
+    borderRadius: 30,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
@@ -104,6 +123,7 @@ class Authenticate extends Component {
     };
 
     this.googleLogin = this.googleLogin.bind(this);
+    this.fbLogin = this.fbLogin.bind(this);
   }
 
   /**
@@ -150,44 +170,65 @@ class Authenticate extends Component {
     });
   }
 
+  fbLogin() {
+    LoginManager.logInWithReadPermissions(['public_profile']).then(function(result) {
+      if (result.isCancelled) {
+        console.log("Login Cancelled");
+      } else {
+        console.log("Login Success permission granted:" + result.grantedPermissions);
+      }
+    }, function(error) {
+       console.log("some error occurred!!");
+    })
+  }
+
   render = () => {
     const Form = FormValidation.form.Form;
     
     return (
       <View style={[AppStyles.containerCentered, AppStyles.container, styles.background]}>
         <View style={[AppStyles.containerCentered, AppStyles.flex1]}>
-          <Text p style={[AppStyles.textCenterAligned, AppStyles.h2]}>
-            Photobook
-          </Text>
-          
-          <Image
-            source={require('../../images/logo.png')}
-            style={[styles.logo]}
-          />
+          <View style={[AppStyles.row]}>
+            <Text style={[styles.title1, styles.thinFont]}>
+              Photo
+            </Text>
+            <Text style={[styles.title2, styles.thinFont]}>
+              Book
+            </Text>
+          </View>
 
-          <Spacer size={10} />
+          <Spacer size={30} />
 
-          <View style={[AppStyles.row, AppStyles.paddingHorizontal]}>
-            <TouchableHighlight onPress={this.googleLogin}>
-              <Image
-                source={require('../../images/google-login.png')}
-                style={[styles.loginLogo]}
-              />
-            </TouchableHighlight>
-            <Image
-              source={require('../../images/facebook-login.png')}
-              style={[styles.loginLogo]}
-            />
+          <View style={[AppStyles.row]}>
+            <TouchableOpacity onPress={this.googleLogin}>
+              <View>
+                <SocialIcon
+                  type='google-plus-official'
+                />
+              </View>
+            </TouchableOpacity>
 
-            <Image
-              source={require('../../images/wechat-login.png')}
-              style={[styles.loginLogo]}
-            />
+            <TouchableOpacity  onPress={this.fbLogin}>
+                <View>
+                  <SocialIcon
+                    type='facebook'
+                  />
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={this.googleLogin}>
+              <View style={styles.container}>
+                <Image
+                  source={require('../../images/wechat-login.png')}
+                  style={styles.socialIcon}
+                />
+              </View>
+            </TouchableOpacity>
           </View>
 
           <Spacer size={10} />
 
-          <Text p style={[AppStyles.textCenterAligned,]}>
+          <Text style={[AppStyles.textCenterAligned, styles.thinFont]}>
             - OR -
           </Text>
 
@@ -222,6 +263,7 @@ class Authenticate extends Component {
               raised={false}
               backgroundColor={'#fff'}
               color={'#808080'}
+              fontWeight={'300'}
             />
           </View>
           <View style={[AppStyles.flex1]}>
@@ -231,6 +273,7 @@ class Authenticate extends Component {
               raised={false}
               backgroundColor={'#fff'}
               color={'#808080'}
+              fontWeight={'300'}
             />
           </View>
         </View>

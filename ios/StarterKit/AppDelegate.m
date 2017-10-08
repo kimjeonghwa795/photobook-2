@@ -11,6 +11,8 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @implementation AppDelegate
 
@@ -45,7 +47,8 @@
   NSDictionary *plistDict = [NSDictionary dictionaryWithContentsOfFile:filePath];
   [GIDSignIn sharedInstance].clientID = [plistDict objectForKey:@"CLIENT_ID"];
   
-  return YES;
+  return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                  didFinishLaunchingWithOptions:launchOptions];;
 }
 
 - (BOOL)application:(UIApplication *)application
@@ -61,12 +64,31 @@
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
-  if ([[GIDSignIn sharedInstance] handleURL:url
-                          sourceApplication:sourceApplication
-                                 annotation:annotation]) {
-    return YES;
+  BOOL wasHandled=false;;
+  if ([url.scheme hasPrefix:@"fb"]) {
+    
+    wasHandled =[[FBSDKApplicationDelegate sharedInstance] application:application
+                                                               openURL:url
+                                                     sourceApplication:sourceApplication
+                                                            annotation:annotation];
   }
-  return YES;
+  else
+  {
+    wasHandled=  [[GIDSignIn sharedInstance] handleURL:url
+                                     sourceApplication:sourceApplication
+                                            annotation:annotation];
+  }
+  
+  NSLog ( @"application openURL");
+  NSLog ( @"URL = %@", url);
+  NSLog ( @"Application = %@", sourceApplication);
+  
+  return wasHandled;
+}
+  
+  // Facebook SDK
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+  [FBSDKAppEvents activateApp];
 }
 
 @end

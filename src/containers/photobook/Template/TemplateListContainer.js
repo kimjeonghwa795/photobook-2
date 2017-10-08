@@ -32,7 +32,6 @@ class TemplateList extends Component {
 
   static propTypes = {
     templates: PropTypes.arrayOf(PropTypes.object),
-    tab: PropTypes.string.isRequired,
     getTemplates: PropTypes.func.isRequired,
   }
 

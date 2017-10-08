@@ -9,8 +9,9 @@ import {
   View,
   ListView,
   ScrollView,
+  StyleSheet,
 } from 'react-native';
-import { SocialIcon } from 'react-native-elements';
+import { Avatar } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 
 // Consts and Libs
@@ -20,15 +21,26 @@ import { AppStyles } from '@theme/';
 import {
   List,
   ListItem,
+  Text,
 } from '@components/ui/';
 
-// Example Data
-const dummyData1 = [
+// Rows
+const rows = [
   { title: 'Settings', icon: 'build' },
   { title: 'Payment', icon: 'payment' },
   { title: 'Address', icon: 'map' },
   { title: 'Help', icon: 'help' },
 ];
+
+/* Styles ==================================================================== */
+const styles = StyleSheet.create({
+  avatar: {
+    marginTop: 20,
+  },
+  username: {
+    color: 'black',
+  },
+});
 
 /* Component ==================================================================== */
 class Profile extends Component {
@@ -41,7 +53,7 @@ class Profile extends Component {
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
 
     this.state = {
-      dataSource: ds.cloneWithRows(dummyData1),
+      dataSource: ds.cloneWithRows(rows),
     };
   }
 
@@ -63,6 +75,17 @@ class Profile extends Component {
   render = () => {
     return (
       <View style={AppStyles.container}>
+        <View style={[AppStyles.containerCentered, styles.avatar]}>
+          <Avatar
+            large
+            rounded
+            source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg"}}
+            activeOpacity={0.7}
+          />
+          <Text p style={[AppStyles.textCenterAligned, AppStyles.h3, styles.username]}>
+            Lorem
+          </Text>
+        </View>
         <ScrollView
           automaticallyAdjustContentInsets={false}
           style={[AppStyles.container]}
