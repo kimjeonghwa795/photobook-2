@@ -18,7 +18,7 @@ import { AppColors, AppStyles } from '@theme/';
 import { ErrorMessages } from '@constants/';
 
 // Containers
-import RecipeCard from '@containers/photobook/Card/CardContainer';
+import TemplateCard from '@containers/photobook/Card/CardContainer';
 
 // Components
 import Error from '@components/general/Error';
@@ -80,7 +80,7 @@ class TemplateListView extends Component {
       <View style={[AppStyles.container]}>
         <ListView
           initialListSize={5}
-          renderRow={template => <RecipeCard recipe={template} />}
+          renderRow={template => <TemplateCard recipe={template} />}
           dataSource={dataSource}
           automaticallyAdjustContentInsets={false}
           refreshControl={

@@ -19,8 +19,10 @@ import { NavbarMenuButton } from '@containers/ui/NavbarMenuButton/NavbarMenuButt
 import Placeholder from '@components/general/Placeholder';
 import Error from '@components/general/Error';
 import Profile from '@containers/ProfileView';
-import Photobook from '@containers/photobook/NewBook/NewBookContainer';
+import NewBook from '@containers/photobook/NewBook/NewBookContainer';
+import EditBook from '@containers/photobook/EditBook/EditBookContainer';
 import TemplateList from '@containers/photobook/Template/TemplateListContainer';
+import CardFormView from '@containers/profile/payment/CardFormView';
 import RecipeView from '@containers/photobook/RecipeView';
 
 const navbarPropsTabs = {
@@ -38,7 +40,7 @@ const scenes = (
     <Scene
       {...navbarPropsTabs}
       key={'photobook'}
-      component={Photobook}
+      component={NewBook}
       title={'Photobook'}
       icon={props => TabIcon({ ...props, icon: 'photo-album' })}
     />
@@ -49,6 +51,14 @@ const scenes = (
       component={TemplateList}
       title={'Choose a template'}
       analyticsDesc={'Choose a template'}
+    />
+
+    <Scene
+      key={'EditBook'}
+      {...navbarPropsTabs}
+      title={'Photobook'}
+      component={EditBook}
+      analyticsDesc={'Edit book'}
     />
     
     <Scene
@@ -77,6 +87,15 @@ const scenes = (
       icon={props => TabIcon({ ...props, icon: 'person' })}
       analyticsDesc={'Profile: Profile'}
     />
+
+    {/*<Scene
+      key={'CardForm'}
+      {...navbarPropsTabs}
+      title={'CardForm'}
+      component={CardFormView}
+      icon={props => TabIcon({ ...props, icon: 'person' })}
+      analyticsDesc={'ApplePay'}
+    />*/}
   </Scene>
 );
 

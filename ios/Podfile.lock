@@ -14,9 +14,11 @@ PODS:
   - GoogleSymbolUtilities (1.1.2)
   - GoogleUtilities (1.3.2):
     - GoogleSymbolUtilities (~> 1.1)
+  - Stripe (10.1.0)
 
 DEPENDENCIES:
   - GoogleSignIn
+  - Stripe (~> 10.1.0)
 
 SPEC CHECKSUMS:
   GoogleAppUtilities: a8a552aa74f6597f805e45b5a3962766c3134973
@@ -25,7 +27,8 @@ SPEC CHECKSUMS:
   GoogleSignIn: 09036ed61f8e75f1424100d63f7719480b2428c3
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
+  Stripe: 1c7aa951a075cced500a919d92b687b35d410705
 
-PODFILE CHECKSUM: 21d0f48d00bba862d57ffa7d0fe0b52df582c7a5
+PODFILE CHECKSUM: e8bfae6016e7410dcd137bef0c0ce194550db60c
 
 COCOAPODS: 1.3.1

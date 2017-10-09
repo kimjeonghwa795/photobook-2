@@ -7,7 +7,7 @@
 import { connect } from 'react-redux';
 
 // The component we're mapping to
-import CreateNewBook from './CreateNewBookView';
+import NewBook from './NewBookView';
 
 // What data from the store shall we send to the component?
 const mapStateToProps = state => ({
@@ -17,4 +17,4 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateNewBook);
+export default connect(mapStateToProps, mapDispatchToProps)(NewBook);
