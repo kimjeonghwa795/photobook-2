@@ -23,7 +23,6 @@ import NewBook from '@containers/photobook/NewBook/NewBookContainer';
 import EditBook from '@containers/photobook/EditBook/EditBookContainer';
 import TemplateList from '@containers/photobook/Template/TemplateListContainer';
 import CardFormView from '@containers/profile/payment/CardFormView';
-import RecipeView from '@containers/photobook/RecipeView';
 
 const navbarPropsTabs = {
   ...AppConfig.navbarProps,

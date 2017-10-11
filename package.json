@@ -35,6 +35,7 @@
     "react-native-image-picker": "^0.26.7",
     "react-native-router-flux": "3.39.2",
     "react-native-side-menu": "^1.0.2",
+    "react-native-snap-carousel": "^3.3.3",
     "react-native-tab-view": "0.0.67",
     "react-native-vector-icons": "^4.2.0",
     "react-redux": "^5.0.1",

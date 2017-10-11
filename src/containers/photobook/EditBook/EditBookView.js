@@ -13,8 +13,8 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import ImagePicker from 'react-native-image-picker';
 import CropImagePicker from 'react-native-image-crop-picker';
+import Carousel from 'react-native-snap-carousel';
 
 // Components
 import { Button, Text } from '@ui/';
@@ -35,12 +35,17 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     height: AppSizes.screen.width,
     width: AppSizes.screen.width,
-    marginTop: -30,
   },
   image: {
-    height: AppSizes.screen.width-80,
-    width: AppSizes.screen.width-80,
+    height: AppSizes.screen.width-40,
+    width: AppSizes.screen.width-40,
   },
+  carousel: {
+    marginTop: 0,
+  },
+  pageIndicator: {
+    marginTop: -50,
+  }
 });
 
 /* Component ==================================================================== */
@@ -53,49 +58,25 @@ class EditBook extends Component {
     const { images } = this.props;    
 
     this.state = {
-      photoSource: { uri: images[0].path },
+      images: images,
+      index: 0,
+      pageNum: images.length,
       photoTitle: null,
     };
   }
 
   importPhoto = () => {
-    const options = {
-      title: 'Select Photo',
-      customButtons: [
-        {name: 'fb', title: 'Choose Photo from Facebook'},
-      ],
-      storageOptions: {
-        skipBackup: true,
-        path: 'images'
-      }
-    };
-
-    ImagePicker.showImagePicker(options, (response)  => {
-        console.log('Response = ', response);
-      
-        if (response.didCancel) {
-          console.log('User cancelled image picker');
-        }
-        else if (response.error) {
-          console.log('ImagePicker Error: ', response.error);
-        }
-        else if (response.customButton) {
-          console.log('User tapped custom button: ', response.customButton);
-        }
-        else {
-          let source = { uri: response.uri };
-          
-          this.setState({
-            photoSource: source,
-            photoTitle: response.fileName,
-          });
-          
-        }
-    });
+    /*CropImagePicker.openPicker({
+    }).then(image => {
+      this.setState({
+        photoSource: { uri: image.path },
+        photoTitle: image.filename,
+      });
+    });*/
   }
 
   cropPhoto = () => {
-    if (this.state.photoSource !== null){
+    /*if (this.state.photoSource !== null){
       CropImagePicker.openCropper({
         path: this.state.photoSource.uri,
         width: 300,
@@ -105,26 +86,55 @@ class EditBook extends Component {
           photoSource: { uri: image.path }
         });
       });
-    }
+    }*/
   }
 
   deletePhoto = () => {
     this.setState({
-      photoSource: null,
+      images: this.state.images.filter((image) => {
+        return this.state.images.indexOf(image)!=this._carousel.currentIndex; 
+      }),
+    }, () => {
+      this.setState({
+        pageNum: this.state.images.length,
+        index: this._carousel.currentIndex,
+      })
     });
   }
+
+  _renderItem ({item, index}) {
+    return (
+      <View style={[AppStyles.containerCentered, styles.canvas]}>
+        <View style={[AppStyles.row]}>
+          <Text>{item.filename}</Text>
+        </View>
+        <Image source={ {uri: item.path} } style={[styles.image]}/>
+      </View>
+    );
+  }
+
+  onScroll = (e) => {
+    this.setState({
+      index: this._carousel.currentIndex,
+    });
+  } 
 
   render = () => {
     return (
       <View style={[AppStyles.containerCentered, AppStyles.container, styles.background]}>
-        <TouchableOpacity onPress={this.cropPhoto}>
-          <View style={[AppStyles.containerCentered, styles.canvas]}>
-            <View style={[AppStyles.row]}>
-              <Text>{this.state.photoTitle}</Text>
-            </View>
-            <Image source={this.state.photoSource} style={[styles.image]}/>
-          </View>
-        </TouchableOpacity>
+        <View style={[AppStyles.row, styles.pageIndicator]}>
+          <Text> {this.state.index+1} / {this.state.pageNum}</Text>
+        </View>
+        <View style={[AppStyles.row, styles.carousel]}>
+          <Carousel
+            ref={(c) => { this._carousel = c; }}
+            data={this.state.images}
+            renderItem={this._renderItem}
+            sliderWidth={AppSizes.screen.width}
+            itemWidth={AppSizes.screen.width}
+            onScroll={this.onScroll}
+          />
+        </View>
         <ActionButton buttonColor="rgba(231,76,60,1)">
           <ActionButton.Item buttonColor='#9b59b6' title="Import Photo" onPress={this.importPhoto}>
             <Icon name="add" style={styles.actionButtonIcon} />
@@ -132,8 +142,8 @@ class EditBook extends Component {
           <ActionButton.Item buttonColor='#3498db' title="Remove Photo" onPress={this.deletePhoto}>
             <Icon name="remove" style={styles.actionButtonIcon} />
           </ActionButton.Item>
-          <ActionButton.Item buttonColor='#1abc9c' title="Save" onPress={() => {}}>
-            <Icon name="save" style={styles.actionButtonIcon} />
+          <ActionButton.Item buttonColor='#1abc9c' title="Edit Photo" onPress={this.cropPhoto}>
+            <Icon name="edit" style={styles.actionButtonIcon} />
           </ActionButton.Item>
         </ActionButton>
       </View>
