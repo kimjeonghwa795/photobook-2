@@ -10,12 +10,14 @@ import {
   View,
   StyleSheet,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import ImagePicker from 'react-native-image-picker';
+import CropImagePicker from 'react-native-image-crop-picker';
 
 // Components
-import { Button } from '@ui/';
+import { Button, Text } from '@ui/';
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -35,6 +37,10 @@ const styles = StyleSheet.create({
     width: AppSizes.screen.width,
     marginTop: -30,
   },
+  image: {
+    height: AppSizes.screen.width-80,
+    width: AppSizes.screen.width-80,
+  },
 });
 
 /* Component ==================================================================== */
@@ -44,8 +50,11 @@ class EditBook extends Component {
   constructor(props) {
     super(props);
 
+    const { images } = this.props;    
+
     this.state = {
-      photoSource: null,
+      photoSource: { uri: images[0].path },
+      photoTitle: null,
     };
   }
 
@@ -75,25 +84,52 @@ class EditBook extends Component {
         }
         else {
           let source = { uri: response.uri };
-
+          
           this.setState({
-            photoSource: source
+            photoSource: source,
+            photoTitle: response.fileName,
           });
+          
         }
+    });
+  }
+
+  cropPhoto = () => {
+    if (this.state.photoSource !== null){
+      CropImagePicker.openCropper({
+        path: this.state.photoSource.uri,
+        width: 300,
+        height: 400
+      }).then(image => {
+        this.setState({
+          photoSource: { uri: image.path }
+        });
+      });
+    }
+  }
+
+  deletePhoto = () => {
+    this.setState({
+      photoSource: null,
     });
   }
 
   render = () => {
     return (
       <View style={[AppStyles.containerCentered, AppStyles.container, styles.background]}>
-        <View style={[styles.canvas]}>
-          <Image source={this.state.photoSource}/>
-        </View>
+        <TouchableOpacity onPress={this.cropPhoto}>
+          <View style={[AppStyles.containerCentered, styles.canvas]}>
+            <View style={[AppStyles.row]}>
+              <Text>{this.state.photoTitle}</Text>
+            </View>
+            <Image source={this.state.photoSource} style={[styles.image]}/>
+          </View>
+        </TouchableOpacity>
         <ActionButton buttonColor="rgba(231,76,60,1)">
           <ActionButton.Item buttonColor='#9b59b6' title="Import Photo" onPress={this.importPhoto}>
             <Icon name="add" style={styles.actionButtonIcon} />
           </ActionButton.Item>
-          <ActionButton.Item buttonColor='#3498db' title="Remove Photo" onPress={() => {}}>
+          <ActionButton.Item buttonColor='#3498db' title="Remove Photo" onPress={this.deletePhoto}>
             <Icon name="remove" style={styles.actionButtonIcon} />
           </ActionButton.Item>
           <ActionButton.Item buttonColor='#1abc9c' title="Save" onPress={() => {}}>

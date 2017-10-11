@@ -86,11 +86,15 @@ EOM
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/GoogleAuthUtilities/Frameworks/frameworks/GoogleAuthUtilities.framework/Resources/GTMOAuth2ViewTouch.xib"
   install_resource "${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle"
+  install_resource "$PODS_CONFIGURATION_BUILD_DIR/QBImagePickerController/QBImagePicker.bundle"
+  install_resource "${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle"
   install_resource "$PODS_CONFIGURATION_BUILD_DIR/Stripe/Stripe.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/GoogleAuthUtilities/Frameworks/frameworks/GoogleAuthUtilities.framework/Resources/GTMOAuth2ViewTouch.xib"
   install_resource "${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle"
+  install_resource "$PODS_CONFIGURATION_BUILD_DIR/QBImagePickerController/QBImagePicker.bundle"
+  install_resource "${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle"
   install_resource "$PODS_CONFIGURATION_BUILD_DIR/Stripe/Stripe.bundle"
 fi
 

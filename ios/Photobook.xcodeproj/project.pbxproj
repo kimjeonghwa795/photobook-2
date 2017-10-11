@@ -44,6 +44,7 @@
 		9FE70E0599D44E42AD68E716 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62A8EA882B184930825FDE66 /* Zocial.ttf */; };
 		A86B48E557534E6994A40ACF /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C921EF6F2E425487EAC840 /* libRNDeviceInfo.a */; };
 		A915D80FA56344F3A266D063 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2916AC6B93D546BF97103DBD /* libRNImagePicker.a */; };
+		AAAAFB17B9374C26A9D4A0EB /* libimageCropPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09DDF35E3D8D4017AAAC27EF /* libimageCropPicker.a */; };
 		B6339E5913CB4051BAF6A59F /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2860D02B5F80404290871BF1 /* Entypo.ttf */; };
 		C97D70921E2375C300C3C793 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97D70901E2375C300C3C793 /* LaunchScreen.storyboard */; };
 		C97D70A31E23777B00C3C793 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97D70A21E23777B00C3C793 /* CoreData.framework */; };
@@ -226,6 +227,13 @@
 			remoteGlobalIDString = 014A3B5C1C6CF33500B6D375;
 			remoteInfo = RNImagePicker;
 		};
+		45755EF71F8CA8B20014EEC1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 19572606E1E14869BA5C399E /* imageCropPicker.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3400A8081CEB54A6008A0BC7;
+			remoteInfo = imageCropPicker;
+		};
 		5E9157321DD0AC6500FF2AA8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
@@ -288,6 +296,7 @@
 		00E356F21AD99517003FC87E /* StarterKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StarterKitTests.m; sourceTree = "<group>"; };
 		0179DBCBC56442DCBBF69B9D /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceInfo.xcodeproj; path = "../node_modules/react-native-device-info/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; };
 		037F13963D23404DBB23BC3F /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		09DDF35E3D8D4017AAAC27EF /* libimageCropPicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libimageCropPicker.a; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Photobook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photobook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -299,6 +308,7 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = StarterKit/main.m; sourceTree = "<group>"; };
 		13FDE031C7B44D98AA5957A6 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		19572606E1E14869BA5C399E /* imageCropPicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = imageCropPicker.xcodeproj; path = "../node_modules/react-native-image-crop-picker/ios/imageCropPicker.xcodeproj"; sourceTree = "<group>"; };
 		1CBD057CA9CA42E5BCD7F708 /* libRCTGoogleAnalyticsBridge.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTGoogleAnalyticsBridge.a; sourceTree = "<group>"; };
 		1E7924BE4D68E2C90BE65CEE /* libPods-PhotobookTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhotobookTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		209046D0201C4A79A0DE9B79 /* libTPSStripe.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libTPSStripe.a; sourceTree = "<group>"; };
@@ -377,6 +387,7 @@
 				1AEDF480F7C846B999F4BE7A /* libRCTFBSDK.a in Frameworks */,
 				543CEBC144514422B06AD559 /* libTPSStripe.a in Frameworks */,
 				A915D80FA56344F3A266D063 /* libRNImagePicker.a in Frameworks */,
+				AAAAFB17B9374C26A9D4A0EB /* libimageCropPicker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +535,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		45755EF41F8CA8B20014EEC1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45755EF81F8CA8B20014EEC1 /* libimageCropPicker.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		5AF35C8DD5E04D5D8A9EB48D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,6 +610,7 @@
 				9257ACEB8BC34760B8522A2F /* RCTFBSDK.xcodeproj */,
 				EB77161274D5477AA3F8D939 /* TPSStripe.xcodeproj */,
 				766D01259EB442A8A5314C12 /* RNImagePicker.xcodeproj */,
+				19572606E1E14869BA5C399E /* imageCropPicker.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -718,6 +738,10 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 45755EF41F8CA8B20014EEC1 /* Products */;
+					ProjectRef = 19572606E1E14869BA5C399E /* imageCropPicker.xcodeproj */;
+				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
@@ -963,6 +987,13 @@
 			remoteRef = 4517C8931F8BD95800A89DC7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		45755EF81F8CA8B20014EEC1 /* libimageCropPicker.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libimageCropPicker.a;
+			remoteRef = 45755EF71F8CA8B20014EEC1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1080,7 +1111,9 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Photobook/Pods-Photobook-resources.sh",
 				"${PODS_ROOT}/GoogleAuthUtilities/Frameworks/frameworks/GoogleAuthUtilities.framework/Resources/GTMOAuth2ViewTouch.xib",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-				$PODS_CONFIGURATION_BUILD_DIR/Stripe/Stripe.bundle,
+				"$PODS_CONFIGURATION_BUILD_DIR/QBImagePickerController/QBImagePicker.bundle",
+				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/Stripe/Stripe.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -1170,11 +1203,13 @@
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 					"$(SRCROOT)/../node_modules/tipsi-stripe/ios/TPSStripe",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-image-crop-picker/ios/**",
 				);
 				INFOPLIST_FILE = StarterKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/Photobook\"",
 					"\"$(SRCROOT)/Photobook\"",
 					"\"$(SRCROOT)/Photobook\"",
 					"\"$(SRCROOT)/Photobook\"",
@@ -1214,11 +1249,13 @@
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
 					"$(SRCROOT)/../node_modules/tipsi-stripe/ios/TPSStripe",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-image-crop-picker/ios/**",
 				);
 				INFOPLIST_FILE = StarterKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/Photobook\"",
 					"\"$(SRCROOT)/Photobook\"",
 					"\"$(SRCROOT)/Photobook\"",
 					"\"$(SRCROOT)/Photobook\"",

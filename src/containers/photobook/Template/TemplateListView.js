@@ -80,7 +80,7 @@ class TemplateListView extends Component {
       <View style={[AppStyles.container]}>
         <ListView
           initialListSize={5}
-          renderRow={template => <TemplateCard recipe={template} />}
+          renderRow={template => <TemplateCard template={template} />}
           dataSource={dataSource}
           automaticallyAdjustContentInsets={false}
           refreshControl={
