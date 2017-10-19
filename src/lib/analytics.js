@@ -26,8 +26,8 @@ const track = store => next => (action) => {
           // Send to Google Analytics
           GoogleAnalytics.trackScreenView(screenName);
         } catch (err) {
-          console.log(store);
-          console.log(err);
+          //console.log(store);
+          //console.log(err);
         }
       }
       break;

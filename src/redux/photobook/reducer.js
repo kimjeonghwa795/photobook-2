@@ -9,18 +9,47 @@ import Store from './store';
 // Set initial state
 export const initialState = Store;
 
-export default function recipeReducer(state = initialState, action) {
+export default function photobookReducer(state = initialState, action) {
   switch (action.type) {
-    case 'FAVOURITES_REPLACE': {
+    case 'ADD_IMAGE': {
       return {
         ...state,
-        favourites: action.data || [],
+        images: [
+          ...state.images.slice(0,action.index+1),
+          action.image,
+          ...state.images.slice(action.index+1)
+        ],
       };
     }
-    case 'TABS_REPLACE': {
+    case 'REMOVE_IMAGE': {
       return {
         ...state,
-        tabs: action.data,
+        images: [
+          ...state.images.slice(0,action.index), 
+          ...state.images.slice(action.index+1)
+        ],
+      };
+    }
+    case 'EDIT_IMAGE': {
+      return {
+        ...state,
+        images: [
+          ...state.images.slice(0,action.index),
+          action.image,
+          ...state.images.slice(action.index+1)
+        ],
+      };
+    }
+    case 'IMPORT_IMAGES': {
+      return {
+        ...state,
+        images: action.images,
+      };
+    }
+    case 'RESET_IMAGES': {
+      return {
+        ...state,
+        images: [],
       };
     }
     case 'TEMPLATES_REPLACE': {

@@ -11,7 +11,7 @@ import { Actions } from 'react-native-router-flux';
 import ImagePicker from 'react-native-image-crop-picker';
 
 // Actions
-import * as templateActions from '@redux/photobook/actions';
+import * as photobookActions from '@redux/photobook/actions';
 
 // Components
 import TemplateCardRender from './CardView';
@@ -22,8 +22,10 @@ const mapStateToProps = state => ({
 });
 
 // Any actions to map to the component?
-const mapDispatchToProps = {
-};
+const mapDispatchToProps = dispatch => ({
+  importImages: photobookActions.importImages,
+  dispatch,
+});
 
 /* Component ==================================================================== */
 class TemplateCard extends Component {
@@ -53,12 +55,14 @@ class TemplateCard extends Component {
     * On Press of Card
     */
   onPressCard = () => {
+    const { dispatch, importImages } = this.props;
     ImagePicker.openPicker({
-      multiple: true
+      multiple: true,
+      mediaType: 'photo',
+      includeExif: true,
     }).then(images => {
-      Actions.EditBook({
-        images: images,
-      });
+      dispatch(importImages(images));
+      Actions.EditBook();
     });
   }
 

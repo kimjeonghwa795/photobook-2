@@ -23,6 +23,7 @@
     "prop-types": "^15.5.10",
     "react": "16.0.0-alpha.6",
     "react-addons-shallow-compare": "^15.4.2",
+    "react-addons-update": "^15.6.2",
     "react-native": "0.44.3",
     "react-native-action-button": "^2.8.0",
     "react-native-device-info": "^0.10.1",

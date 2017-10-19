@@ -122,8 +122,6 @@ class Authenticate extends Component {
       },
     };
 
-    this.googleLogin = this.googleLogin.bind(this);
-    this.fbLogin = this.fbLogin.bind(this);
   }
 
   /**
@@ -149,7 +147,7 @@ class Authenticate extends Component {
     },
   );
   
-  async googleLogin() {
+  googleLogin = async () => {
     await GoogleSignIn.configure({
       // iOS
       clientID: '1033924302442-sb2fi6lupc6stdju3e7eqqv8e309qpk2.apps.googleusercontent.com',
@@ -165,12 +163,12 @@ class Authenticate extends Component {
       shouldFetchBasicProfile: true,
     });
   
-    const googleUser = await GoogleSignIn.signInPromise().then(() => {
+    const googleUser = await GoogleSignIn.signInPromise().then((user) => {
       Actions.app();
     });
   }
 
-  fbLogin() {
+  fbLogin = () => {
     LoginManager.logInWithReadPermissions(['public_profile']).then(function(result) {
       if (result.isCancelled) {
         console.log("Login Cancelled");
@@ -216,14 +214,14 @@ class Authenticate extends Component {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={this.googleLogin}>
+            {/*<TouchableOpacity onPress={this.googleLogin}>
               <View style={styles.container}>
                 <Image
                   source={require('../../images/wechat-login.png')}
                   style={styles.socialIcon}
                 />
               </View>
-            </TouchableOpacity>
+            </TouchableOpacity>*/}
           </View>
 
           <Spacer size={10} />

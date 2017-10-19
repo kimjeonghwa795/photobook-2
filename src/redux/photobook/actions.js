@@ -88,3 +88,54 @@ export function getTemplates() {
     });
   });
 }
+
+/**
+* Import Images
+*/
+export function importImages(images) {
+  return {
+    type: 'IMPORT_IMAGES',
+    images,
+  };
+}
+
+/**
+* Reset Images
+*/
+export function resetImages() {
+  return {
+    type: 'RESET_IMAGES',
+  };
+}
+
+/**
+* Add Image
+*/
+export function addImage(image, index) {
+  return {
+    type: 'ADD_IMAGE',
+    image,
+    index,
+  };
+}
+
+/**
+* Remove Image
+*/
+export function removeImage(index) {
+  return {
+    type: 'REMOVE_IMAGE',
+    index
+  };
+}
+  
+/**
+* Edit Image
+*/
+export function editImage(image, index) {
+  return {
+    type: 'EDIT_IMAGE',
+    image,
+    index,
+  };
+}

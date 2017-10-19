@@ -37,15 +37,23 @@ const styles = StyleSheet.create({
     width: AppSizes.screen.width,
   },
   image: {
-    height: AppSizes.screen.width-40,
-    width: AppSizes.screen.width-40,
+    height: AppSizes.screen.width-50,
+    width: AppSizes.screen.width-50,
   },
   carousel: {
     marginTop: 0,
   },
   pageIndicator: {
     marginTop: -50,
-  }
+  },
+  right: {
+    textAlign: 'right',
+    marginRight: 40,
+  },
+  left: {
+    textAlign: 'left',
+    marginLeft: 40,
+  },
 });
 
 /* Component ==================================================================== */
@@ -55,58 +63,53 @@ class EditBook extends Component {
   constructor(props) {
     super(props);
 
-    const { images } = this.props;    
-
     this.state = {
-      images: images,
       index: 0,
-      pageNum: images.length,
-      photoTitle: null,
     };
   }
 
   importPhoto = () => {
-    /*CropImagePicker.openPicker({
+    const { addImage, dispatch } = this.props; 
+    CropImagePicker.openPicker({
+      mediaType: 'photo',
+      includeExif: true,
     }).then(image => {
-      this.setState({
-        photoSource: { uri: image.path },
-        photoTitle: image.filename,
-      });
-    });*/
-  }
-
-  cropPhoto = () => {
-    /*if (this.state.photoSource !== null){
-      CropImagePicker.openCropper({
-        path: this.state.photoSource.uri,
-        width: 300,
-        height: 400
-      }).then(image => {
-        this.setState({
-          photoSource: { uri: image.path }
-        });
-      });
-    }*/
-  }
-
-  deletePhoto = () => {
-    this.setState({
-      images: this.state.images.filter((image) => {
-        return this.state.images.indexOf(image)!=this._carousel.currentIndex; 
-      }),
-    }, () => {
-      this.setState({
-        pageNum: this.state.images.length,
-        index: this._carousel.currentIndex,
-      })
+      dispatch(addImage(image, this._carousel.currentIndex));
     });
   }
 
+  editPhoto = () => {
+    const { editImage, dispatch } = this.props; 
+    if (this.props.images !== null){
+      CropImagePicker.openCropper({
+        path: this.props.images[this._carousel.currentIndex].path,
+        includeExif: true,
+      }).then(image => {
+        dispatch(editImage(image, this._carousel.currentIndex));
+      });
+    }
+  }
+
+  deletePhoto = () => {
+    const { removeImage, dispatch } = this.props; 
+    dispatch(removeImage(this._carousel.currentIndex));
+  }
+
   _renderItem ({item, index}) {
+    let date='';
+    let location='';
+
+    if (item.exif !== null){
+      const dateStr = item.exif['{IPTC}'].DateCreated;
+      date = dateStr.substring(6,8)+'/'+dateStr.substring(4,6)+'/'+dateStr.substring(0,4);
+      location = item.exif['{IPTC}'].City;
+    }
+    
     return (
       <View style={[AppStyles.containerCentered, styles.canvas]}>
         <View style={[AppStyles.row]}>
-          <Text>{item.filename}</Text>
+          <Text style={[AppStyles.flex1, styles.left]}>{location}</Text>
+          <Text style={[AppStyles.flex1, styles.right]}>{date}</Text>
         </View>
         <Image source={ {uri: item.path} } style={[styles.image]}/>
       </View>
@@ -123,12 +126,12 @@ class EditBook extends Component {
     return (
       <View style={[AppStyles.containerCentered, AppStyles.container, styles.background]}>
         <View style={[AppStyles.row, styles.pageIndicator]}>
-          <Text> {this.state.index+1} / {this.state.pageNum}</Text>
+          <Text> {this.state.index+1} / {this.props.images.length}</Text>
         </View>
         <View style={[AppStyles.row, styles.carousel]}>
           <Carousel
             ref={(c) => { this._carousel = c; }}
-            data={this.state.images}
+            data={this.props.images}
             renderItem={this._renderItem}
             sliderWidth={AppSizes.screen.width}
             itemWidth={AppSizes.screen.width}
@@ -142,7 +145,7 @@ class EditBook extends Component {
           <ActionButton.Item buttonColor='#3498db' title="Remove Photo" onPress={this.deletePhoto}>
             <Icon name="remove" style={styles.actionButtonIcon} />
           </ActionButton.Item>
-          <ActionButton.Item buttonColor='#1abc9c' title="Edit Photo" onPress={this.cropPhoto}>
+          <ActionButton.Item buttonColor='#1abc9c' title="Edit Photo" onPress={this.editPhoto}>
             <Icon name="edit" style={styles.actionButtonIcon} />
           </ActionButton.Item>
         </ActionButton>
