@@ -31,6 +31,7 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *doneButton;
 
 @property (nonatomic, copy) NSArray *fetchResults;
+@property (nonatomic, copy) NSArray *yearAlbums;
 @property (nonatomic, copy) NSArray *assetCollections;
 
 @end
@@ -46,12 +47,88 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
     // Fetch user albums and smart albums
     PHFetchResult *smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAny options:nil];
     PHFetchResult *userAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAny options:nil];
+    
+    self.yearAlbums = @[[self getCurrentYearAlbum], [self getLastYearAlbum]];
     self.fetchResults = @[smartAlbums, userAlbums];
     
     [self updateAssetCollections];
     
     // Register observer
     [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
+}
+
+-(PHAssetCollection *)getCurrentYearAlbum
+{
+    //Get current year
+    NSDate *currentYear=[[NSDate alloc]init];
+    currentYear=[NSDate date];
+    NSDateFormatter *formatter1 = [[NSDateFormatter alloc] init];
+    [formatter1 setDateFormat:@"yyyy"];
+    NSString *currentYearString = [formatter1 stringFromDate:currentYear];
+    
+    //Get first date of current year
+    NSString *firstDateString=[NSString stringWithFormat:@"10 01-01-%@",currentYearString];
+    NSDateFormatter *formatter2 = [[NSDateFormatter alloc] init];
+    [formatter2 setDateFormat:@"hh dd-MM-yyyy"];
+    NSDate *firstDate = [[NSDate alloc]init];
+    firstDate = [formatter2 dateFromString:firstDateString];
+    
+    PHFetchOptions *allPhotosOptions = [PHFetchOptions new];
+    allPhotosOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
+    
+    NSPredicate *predicateMediaType = [NSPredicate predicateWithFormat:@"mediaType = %d",PHAssetMediaTypeImage];
+    NSPredicate *predicateDate = [NSPredicate predicateWithFormat:@"creationDate > %@", firstDate];
+    
+    NSCompoundPredicate *compoundPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[predicateDate, predicateMediaType]];
+    
+    allPhotosOptions.predicate = compoundPredicate;
+    
+    PHFetchResult *allPhotosResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:allPhotosOptions];
+    
+    PHAssetCollection *currentYearAlbums = [PHAssetCollection transientAssetCollectionWithAssetFetchResult:allPhotosResult title:[NSString stringWithFormat:@"Photos of %@", currentYearString]];
+    
+    return currentYearAlbums;
+}
+
+-(PHAssetCollection *)getLastYearAlbum
+{
+    //Get last year
+    NSDate *currentYear=[[NSDate alloc]init];
+    currentYear=[NSDate date];
+    NSDateFormatter *formatter1 = [[NSDateFormatter alloc] init];
+    [formatter1 setDateFormat:@"yyyy"];
+    NSString *currentYearString = [formatter1 stringFromDate:currentYear];
+    int lastYearValue = [currentYearString intValue]-1;
+    NSString *lastYearString = [NSString stringWithFormat:@"%d", lastYearValue];
+    
+    
+    //Get first date of last year
+    NSString *firstDateString=[NSString stringWithFormat:@"10 01-01-%@",lastYearString];
+    NSDateFormatter *formatter2 = [[NSDateFormatter alloc] init];
+    [formatter2 setDateFormat:@"hh dd-MM-yyyy"];
+    NSDate *firstDate = [[NSDate alloc]init];
+    firstDate = [formatter2 dateFromString:firstDateString];
+    
+    //Get first date of current year
+    NSString *firstDateString2=[NSString stringWithFormat:@"10 01-01-%@",currentYearString];
+    NSDate *firstDate2 = [[NSDate alloc]init];
+    firstDate2 = [formatter2 dateFromString:firstDateString2];
+    
+    PHFetchOptions *allPhotosOptions = [PHFetchOptions new];
+    allPhotosOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
+    
+    NSPredicate *predicateMediaType = [NSPredicate predicateWithFormat:@"mediaType = %d",PHAssetMediaTypeImage];
+    NSPredicate *predicateDate = [NSPredicate predicateWithFormat:@"creationDate > %@ AND creationDate < %@", firstDate, firstDate2];
+    
+    NSCompoundPredicate *compoundPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[predicateDate, predicateMediaType]];
+    
+    allPhotosOptions.predicate = compoundPredicate;
+    
+    PHFetchResult *allPhotosResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:allPhotosOptions];
+    
+    PHAssetCollection *lastYearAlbums = [PHAssetCollection transientAssetCollectionWithAssetFetchResult:allPhotosResult title:[NSString stringWithFormat:@"Photos of %@", lastYearString]];
+    
+    return lastYearAlbums;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -173,6 +250,11 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
     
     NSMutableArray *assetCollections = [NSMutableArray array];
 
+    //Fetch year albums
+    [self.yearAlbums enumerateObjectsUsingBlock:^(PHAssetCollection *assetCollection, NSUInteger index, BOOL *stop) {
+        [assetCollections addObject:assetCollection];
+    }];
+    
     // Fetch smart albums
     for (NSNumber *assetCollectionSubtype in assetCollectionSubtypes) {
         NSArray *collections = smartAlbums[assetCollectionSubtype];

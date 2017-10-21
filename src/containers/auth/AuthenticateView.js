@@ -44,6 +44,7 @@ const mapStateToProps = state => ({
 // Any actions to map to the component?
 const mapDispatchToProps = {
   submit: UserActions.login,
+  googleLogin: UserActions.googleLogin,
 };
 
 /* Styles ==================================================================== */
@@ -164,7 +165,21 @@ class Authenticate extends Component {
     });
   
     const googleUser = await GoogleSignIn.signInPromise().then((user) => {
-      Actions.app();
+      const googleUser = await GoogleSignIn.signInPromise().then((user) => {
+        console.log(user);
+        let googleProvider = user.providerData.filter((profile) => {
+          return profile.providerId === 'google';
+        });
+        let credential = {
+          provider: 'google',
+          token: user.idToken,
+          secret: user.serverAuthCode,
+          email: googleProvider.email,
+          providerId: 'google',
+        };
+        this.props.googleLogin(credential).then(() => {
+          Actions.app();
+        });
     });
   }
 

@@ -31,9 +31,9 @@
         self.assetCollectionSubtypes = @[
                                          @(PHAssetCollectionSubtypeSmartAlbumUserLibrary),
                                          @(PHAssetCollectionSubtypeAlbumMyPhotoStream),
-                                         @(PHAssetCollectionSubtypeSmartAlbumPanoramas),
-                                         @(PHAssetCollectionSubtypeSmartAlbumVideos),
-                                         @(PHAssetCollectionSubtypeSmartAlbumBursts)
+                                         @(PHAssetCollectionSubtypeSmartAlbumFavorites),
+                                         @(PHAssetCollectionSubtypeAlbumRegular),
+                                         @(PHAssetCollectionSubtypeAlbumSyncedFaces)
                                          ];
         self.minimumNumberOfSelection = 1;
         self.numberOfColumnsInPortrait = 4;

@@ -99,11 +99,11 @@ class EditBook extends Component {
     let date='';
     let location='';
 
-    if (item.exif !== null){
+    /*if (item.exif['{IPTC}'] !== null){
       const dateStr = item.exif['{IPTC}'].DateCreated;
       date = dateStr.substring(6,8)+'/'+dateStr.substring(4,6)+'/'+dateStr.substring(0,4);
       location = item.exif['{IPTC}'].City;
-    }
+    }*/
     
     return (
       <View style={[AppStyles.containerCentered, styles.canvas]}>
@@ -120,7 +120,7 @@ class EditBook extends Component {
     this.setState({
       index: this._carousel.currentIndex,
     });
-  } 
+  }
 
   render = () => {
     return (

@@ -116,6 +116,45 @@ export function login(formData = {}, verifyEmail = false) {
 }
 
 /**
+  * Login to Firebase with Google
+  */
+export function googleLogin(credential) {
+  if (Firebase === null) {
+    return () => new Promise((resolve, reject) =>
+      reject({ message: ErrorMessages.invalidFirebase }));
+  }
+
+  return async (dispatch) => {
+    // We're ready - let's try logging them in
+    return Firebase.auth()
+      .signInWithCredential(credential)
+      .then((res) => {
+        if (res && res.uid) {
+          // Update last logged in data
+          FirebaseRef.child(`users/${res.uid}`).update({
+            lastLoggedIn: Firebase.database.ServerValue.TIMESTAMP,
+          });
+
+          // Send verification Email - usually used on first login
+          if (verifyEmail) {
+            Firebase.auth().currentUser
+              .sendEmailVerification()
+              .catch(() => console.log('Verification email failed to send'));
+          }
+          // Get User Data
+          getUserData(dispatch);
+        }
+
+        // Send to Redux
+        return dispatch({
+          type: 'USER_LOGIN',
+          data: res,
+        });
+      }).catch((err) => { throw err; });
+  };
+}  
+
+/**
   * Sign Up to Firebase
   */
 export function signUp(formData = {}) {
