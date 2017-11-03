@@ -32,6 +32,7 @@
 		4517C8351F8B6E0200A89DC7 /* RNGoogleSignInBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4517C8311F8B6E0200A89DC7 /* RNGoogleSignInBridge.m */; };
 		4517C8361F8B6E0200A89DC7 /* RNGoogleSignInEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4517C8321F8B6E0200A89DC7 /* RNGoogleSignInEvents.swift */; };
 		4517C8371F8B6E0200A89DC7 /* RNGoogleSignInEventsBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4517C8331F8B6E0200A89DC7 /* RNGoogleSignInEventsBridge.m */; };
+		456B47341F9B8E3F00C5E8ED /* libRCTFBLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 456B47171F9B8DDA00C5E8ED /* libRCTFBLogin.a */; };
 		45ABD09F1F810DF400AACEB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45ABD09E1F810DF400AACEB5 /* GoogleService-Info.plist */; };
 		45ABD0F51F81270900AACEB5 /* RNGoogleSignIn in Resources */ = {isa = PBXBuildFile; fileRef = 45ABD0F41F81270900AACEB5 /* RNGoogleSignIn */; };
 		50BAB68A1EB84DA69372E99D /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA2A2B45BE844319B549C2DD /* Octicons.ttf */; };
@@ -227,6 +228,13 @@
 			remoteGlobalIDString = 014A3B5C1C6CF33500B6D375;
 			remoteInfo = RNImagePicker;
 		};
+		456B47161F9B8DDA00C5E8ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 456B470E1F9B8DD900C5E8ED /* RCTFBLogin.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4F3A6B5B1ACFBCC500CA65F7;
+			remoteInfo = RCTFBLogin;
+		};
 		45755EF71F8CA8B20014EEC1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 19572606E1E14869BA5C399E /* imageCropPicker.xcodeproj */;
@@ -328,6 +336,7 @@
 		4517C8311F8B6E0200A89DC7 /* RNGoogleSignInBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNGoogleSignInBridge.m; path = "../node_modules/react-native-google-sign-in/ios/RNGoogleSignIn/RNGoogleSignInBridge.m"; sourceTree = "<group>"; };
 		4517C8321F8B6E0200A89DC7 /* RNGoogleSignInEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RNGoogleSignInEvents.swift; path = "../node_modules/react-native-google-sign-in/ios/RNGoogleSignIn/RNGoogleSignInEvents.swift"; sourceTree = "<group>"; };
 		4517C8331F8B6E0200A89DC7 /* RNGoogleSignInEventsBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNGoogleSignInEventsBridge.m; path = "../node_modules/react-native-google-sign-in/ios/RNGoogleSignIn/RNGoogleSignInEventsBridge.m"; sourceTree = "<group>"; };
+		456B470E1F9B8DD900C5E8ED /* RCTFBLogin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTFBLogin.xcodeproj; path = "../node_modules/react-native-facebook-login/RCTFBLogin.xcodeproj"; sourceTree = "<group>"; };
 		45ABD09E1F810DF400AACEB5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "StarterKit/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		45ABD0F41F81270900AACEB5 /* RNGoogleSignIn */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RNGoogleSignIn; path = "../node_modules/react-native-google-sign-in/ios/RNGoogleSignIn"; sourceTree = "<group>"; };
 		45ABD0F71F812A0000AACEB5 /* Photobook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Photobook-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -362,6 +371,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				456B47341F9B8E3F00C5E8ED /* libRCTFBLogin.a in Frameworks */,
 				C97D70A31E23777B00C3C793 /* CoreData.framework in Frameworks */,
 				C97D70C51E2377B200C3C793 /* libsqlite3.0.tbd in Frameworks */,
 				4517C7BC1F8A441300A89DC7 /* FBSDKCoreKit.framework in Frameworks */,
@@ -535,6 +545,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		456B470F1F9B8DD900C5E8ED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				456B47171F9B8DDA00C5E8ED /* libRCTFBLogin.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		45755EF41F8CA8B20014EEC1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -593,6 +611,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				456B470E1F9B8DD900C5E8ED /* RCTFBLogin.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -749,6 +768,10 @@
 				{
 					ProductGroup = 5E91572E1DD0AC6500FF2AA8 /* Products */;
 					ProjectRef = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
+				},
+				{
+					ProductGroup = 456B470F1F9B8DD900C5E8ED /* Products */;
+					ProjectRef = 456B470E1F9B8DD900C5E8ED /* RCTFBLogin.xcodeproj */;
 				},
 				{
 					ProductGroup = 4517C74A1F8A3B1200A89DC7 /* Products */;
@@ -987,6 +1010,13 @@
 			remoteRef = 4517C8931F8BD95800A89DC7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		456B47171F9B8DDA00C5E8ED /* libRCTFBLogin.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTFBLogin.a;
+			remoteRef = 456B47161F9B8DDA00C5E8ED /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		45755EF81F8CA8B20014EEC1 /* libimageCropPicker.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1111,9 +1141,9 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Photobook/Pods-Photobook-resources.sh",
 				"${PODS_ROOT}/GoogleAuthUtilities/Frameworks/frameworks/GoogleAuthUtilities.framework/Resources/GTMOAuth2ViewTouch.xib",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/QBImagePickerController/QBImagePicker.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/QBImagePickerController/QBImagePicker.bundle,
 				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/Stripe/Stripe.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/Stripe/Stripe.bundle,
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (

@@ -99,9 +99,6 @@ export function login(formData = {}, verifyEmail = false) {
               .catch(() => console.log('Verification email failed to send'));
           }
 
-          // Get Favourites
-          RecipeActions.getFavourites(dispatch);
-
           // Get User Data
           getUserData(dispatch);
         }
@@ -118,7 +115,7 @@ export function login(formData = {}, verifyEmail = false) {
 /**
   * Login to Firebase with Google
   */
-export function googleLogin(credential) {
+export function googleLogin(user, verifyEmail = false) {
   if (Firebase === null) {
     return () => new Promise((resolve, reject) =>
       reject({ message: ErrorMessages.invalidFirebase }));
@@ -127,8 +124,48 @@ export function googleLogin(credential) {
   return async (dispatch) => {
     // We're ready - let's try logging them in
     return Firebase.auth()
-      .signInWithCredential(credential)
+      .signInWithCredential(Firebase.auth.GoogleAuthProvider.credential(user.idToken, user.accessToken))
       .then((res) => {
+        if (res && res.uid) {
+          // Update last logged in data
+          FirebaseRef.child(`users/${res.uid}`).update({
+            lastLoggedIn: Firebase.database.ServerValue.TIMESTAMP,
+          });
+
+          // Send verification Email - usually used on first login
+          if (verifyEmail) {
+            Firebase.auth().currentUser
+              .sendEmailVerification()
+              .catch(() => console.log('Verification email failed to send'));
+          }
+          // Get User Data
+          getUserData(dispatch);
+        }
+
+        // Send to Redux
+        return dispatch({
+          type: 'USER_LOGIN',
+          data: res,
+        });
+      }).catch((err) => { throw err; });
+  };
+}  
+
+/**
+  * Login to Firebase with Facebook
+  */
+export function fbLogin(accessToken, verifyEmail = false) {
+  if (Firebase === null) {
+    return () => new Promise((resolve, reject) =>
+      reject({ message: ErrorMessages.invalidFirebase }));
+  }
+
+  return async (dispatch) => {
+    // We're ready - let's try logging them in
+    return Firebase.auth()
+      .signInWithCredential(Firebase.auth.FacebookAuthProvider.credential(accessToken))
+      .then((res) => {
+        console.log(res);
         if (res && res.uid) {
           // Update last logged in data
           FirebaseRef.child(`users/${res.uid}`).update({
@@ -236,7 +273,6 @@ export function logout() {
     .signOut()
     .then(() => {
       removeCredentialsFromStorage();
-      RecipeActions.resetFavourites(dispatch);
       dispatch({ type: 'USER_LOGOUT' });
     });
 }

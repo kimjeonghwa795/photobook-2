@@ -22,6 +22,8 @@
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
 
+  //NSLog ( @"jsCodeLocation = %@", jsCodeLocation);
+
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"StarterKit"
                                                initialProperties:nil
@@ -51,20 +53,20 @@
                                   didFinishLaunchingWithOptions:launchOptions];;
 }
 
-- (BOOL)application:(UIApplication *)application
+/*- (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
   BOOL handled = [[GIDSignIn sharedInstance] handleURL:url
                                      sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
                                             annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
   return handled;
-}
+}*/
 
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
-  BOOL wasHandled=false;;
+  BOOL wasHandled=false;
   if ([url.scheme hasPrefix:@"fb"]) {
     
     wasHandled =[[FBSDKApplicationDelegate sharedInstance] application:application
@@ -79,13 +81,9 @@
                                             annotation:annotation];
   }
   
-  NSLog ( @"application openURL");
-  NSLog ( @"URL = %@", url);
-  NSLog ( @"Application = %@", sourceApplication);
-  
   return wasHandled;
 }
-  
+
   // Facebook SDK
 - (void)applicationDidBecomeActive:(UIApplication *)application {
   [FBSDKAppEvents activateApp];

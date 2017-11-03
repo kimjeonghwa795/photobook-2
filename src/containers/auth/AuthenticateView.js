@@ -21,7 +21,7 @@ import TcombTextInput from '@components/tcomb/TextInput';
 import stylesheet from 'tcomb-form-native/lib/stylesheets/bootstrap';
 import GoogleSignIn from 'react-native-google-sign-in';
 import { SocialIcon } from 'react-native-elements';
-import { LoginManager } from 'react-native-fbsdk';
+import { FBLogin, FBLoginManager } from 'react-native-facebook-login';
 
 // Consts and Libs
 import { AppStyles, AppSizes, AppColors } from '@theme/';
@@ -45,6 +45,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   submit: UserActions.login,
   googleLogin: UserActions.googleLogin,
+  fbLogin: UserActions.fbLogin,
 };
 
 /* Styles ==================================================================== */
@@ -165,33 +166,17 @@ class Authenticate extends Component {
     });
   
     const googleUser = await GoogleSignIn.signInPromise().then((user) => {
-      const googleUser = await GoogleSignIn.signInPromise().then((user) => {
-        console.log(user);
-        let googleProvider = user.providerData.filter((profile) => {
-          return profile.providerId === 'google';
-        });
-        let credential = {
-          provider: 'google',
-          token: user.idToken,
-          secret: user.serverAuthCode,
-          email: googleProvider.email,
-          providerId: 'google',
-        };
-        this.props.googleLogin(credential).then(() => {
-          Actions.app();
-        });
+      this.props.googleLogin(user).then(() => {
+        Actions.app();
+      });
     });
   }
 
   fbLogin = () => {
-    LoginManager.logInWithReadPermissions(['public_profile']).then(function(result) {
-      if (result.isCancelled) {
-        console.log("Login Cancelled");
-      } else {
-        console.log("Login Success permission granted:" + result.grantedPermissions);
-      }
-    }, function(error) {
-       console.log("some error occurred!!");
+    FBLoginManager.loginWithPermissions(["email","user_friends"], (error, data) => {
+      this.props.fbLogin(data.credentials.token).then(() => {
+        Actions.app();
+      });
     })
   }
 
@@ -221,22 +206,13 @@ class Authenticate extends Component {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity  onPress={this.fbLogin}>
-                <View>
-                  <SocialIcon
-                    type='facebook'
-                  />
-              </View>
-            </TouchableOpacity>
-
-            {/*<TouchableOpacity onPress={this.googleLogin}>
-              <View style={styles.container}>
-                <Image
-                  source={require('../../images/wechat-login.png')}
-                  style={styles.socialIcon}
+            <TouchableOpacity onPress={this.fbLogin}>
+              <View>
+                <SocialIcon
+                  type='facebook'
                 />
               </View>
-            </TouchableOpacity>*/}
+            </TouchableOpacity> 
           </View>
 
           <Spacer size={10} />
