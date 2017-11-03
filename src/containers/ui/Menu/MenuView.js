@@ -107,6 +107,16 @@ class Menu extends Component {
     if (action) action();
   }
 
+  firebaseLogout = () => {
+    this.props.logout()
+    .then(() => {
+      this.props.closeSideMenu();
+      Actions.authenticate({ type: 'reset' })
+    }).catch(() => {
+      Alert.alert('Oh uh!', 'Something went wrong.');
+    });
+  }
+
   /**
    * On Logout Press
    */
@@ -115,25 +125,15 @@ class Menu extends Component {
       if (this.props.user.loginType === 'Facebook'){
         FBLoginManager.logout((error, data) => {
           if (!error) {
-            this.props.logout()
-            .then(() => {
-              this.props.closeSideMenu();
-              Actions.authenticate({ type: 'reset' })
-            }).catch(() => {
-              Alert.alert('Oh uh!', 'Something went wrong.');
-            });
+            this.firebaseLogout();
           }
         });
       }else if (this.props.user.loginType === 'Google'){    
         //Tech Debt
         await GoogleSignIn.signOut();
-        this.props.logout()
-        .then(() => {
-          this.props.closeSideMenu();
-          Actions.authenticate({ type: 'reset' })
-        }).catch(() => {
-          Alert.alert('Oh uh!', 'Something went wrong.');
-        });
+        this.firebaseLogout();
+      }else{
+        this.firebaseLogout();
       }
     }
   }

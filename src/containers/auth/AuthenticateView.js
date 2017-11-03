@@ -44,6 +44,7 @@ const mapStateToProps = state => ({
 // Any actions to map to the component?
 const mapDispatchToProps = {
   submit: UserActions.login,
+  emailLogin: UserActions.login,
   googleLogin: UserActions.googleLogin,
   fbLogin: UserActions.fbLogin,
 };
@@ -167,7 +168,7 @@ class Authenticate extends Component {
   
     const googleUser = await GoogleSignIn.signInPromise().then((user) => {
       this.props.googleLogin(user).then(() => {
-        Actions.app();
+        Actions.app({ type: 'reset' });
       });
     });
   }
@@ -175,9 +176,37 @@ class Authenticate extends Component {
   fbLogin = () => {
     FBLoginManager.loginWithPermissions(["email","user_friends"], (error, data) => {
       this.props.fbLogin(data.credentials.token).then(() => {
-        Actions.app();
+        Actions.app({ type: 'reset' });
       });
     })
+  }
+
+  emailLogin = () => {
+    // Get new credentials and update
+    const formData = this.form.getValue();
+
+    // Form is valid
+    if (formData) {
+      this.setState({ form_values: formData }, () => {
+        this.setState({ resultMsg: { status: 'One moment...' } });
+
+        // Scroll to top, to show message
+        if (this.scrollView) this.scrollView.scrollTo({ y: 0 });
+
+        if (this.props.emailLogin) {
+          this.props.emailLogin(formData).then(() => {
+            this.setState({
+              resultMsg: { success: 'Login success' },
+            }, () => {
+              Actions.app({ type: 'reset' });
+            });
+          }).catch(err => this.setState({ resultMsg: { error: err.message } }));
+        } else {
+          this.setState({ resultMsg: { error: 'Submit function missing' } });
+        }
+      });
+    }
+    return true;
   }
 
   render = () => {
@@ -235,7 +264,7 @@ class Authenticate extends Component {
               <Button
                 title={'Login'}
                 icon={{ name: 'lock' }}
-                onPress={Actions.login}
+                onPress={this.emailLogin}
                 backgroundColor={'#16214d'}
               />
             </View>

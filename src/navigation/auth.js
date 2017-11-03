@@ -12,7 +12,6 @@ import { AppConfig } from '@constants/';
 
 // Scenes
 import Authenticate from '@containers/auth/AuthenticateView';
-import LoginForm from '@containers/auth/Forms/LoginContainer';
 import SignUpForm from '@containers/auth/Forms/SignUpContainer';
 import ResetPasswordForm from '@containers/auth/Forms/ResetPasswordContainer';
 import UpdateProfileForm from '@containers/auth/Forms/UpdateProfileContainer';
@@ -26,14 +25,6 @@ const scenes = (
       component={Authenticate}
       type={ActionConst.RESET}
       analyticsDesc={'Authentication'}
-    />
-    <Scene
-      {...AppConfig.navbarProps}
-      key={'login'}
-      title={'Login'}
-      clone
-      component={LoginForm}
-      analyticsDesc={'Login'}
     />
     <Scene
       {...AppConfig.navbarProps}
