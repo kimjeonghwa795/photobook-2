@@ -106,7 +106,8 @@ export function login(formData = {}, verifyEmail = false) {
         // Send to Redux
         return dispatch({
           type: 'USER_LOGIN',
-          data: res,
+          data: res, 
+          loginType: 'Email',
         });
       }).catch((err) => { throw err; });
   };
@@ -146,6 +147,7 @@ export function googleLogin(user, verifyEmail = false) {
         return dispatch({
           type: 'USER_LOGIN',
           data: res,
+          loginType: 'Google',
         });
       }).catch((err) => { throw err; });
   };
@@ -185,7 +187,8 @@ export function fbLogin(accessToken, verifyEmail = false) {
         // Send to Redux
         return dispatch({
           type: 'USER_LOGIN',
-          data: res,
+          data: res, 
+          loginType: 'Facebook',
         });
       }).catch((err) => { throw err; });
   };

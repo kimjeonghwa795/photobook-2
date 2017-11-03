@@ -13,6 +13,8 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import GoogleSignIn from 'react-native-google-sign-in';
+import { FBLoginManager } from 'react-native-facebook-login';
 
 // Consts and Libs
 import { AppStyles, AppSizes } from '@theme/';
@@ -108,15 +110,31 @@ class Menu extends Component {
   /**
    * On Logout Press
    */
-  logout = () => {
+  logout = async () => {
     if (this.props.logout) {
-      this.props.logout()
+      if (this.props.user.loginType === 'Facebook'){
+        FBLoginManager.logout((error, data) => {
+          if (!error) {
+            this.props.logout()
+            .then(() => {
+              this.props.closeSideMenu();
+              Actions.authenticate({ type: 'reset' })
+            }).catch(() => {
+              Alert.alert('Oh uh!', 'Something went wrong.');
+            });
+          }
+        });
+      }else if (this.props.user.loginType === 'Google'){    
+        //Tech Debt
+        await GoogleSignIn.signOut();
+        this.props.logout()
         .then(() => {
           this.props.closeSideMenu();
-          Actions.login();
+          Actions.authenticate({ type: 'reset' })
         }).catch(() => {
           Alert.alert('Oh uh!', 'Something went wrong.');
         });
+      }
     }
   }
 
