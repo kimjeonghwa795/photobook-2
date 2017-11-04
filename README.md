@@ -98,6 +98,8 @@ We've created a quick little "API server" on [Google's Firebase Platform](https:
 
         "firstName": { ".validate": "newData.isString() && newData.val().length > 0" },
         "lastName": { ".validate": "newData.isString() && newData.val().length > 0" },
+        "address1": { ".validate": "newData.isString() && newData.val().length > 0" },
+        "address2": { ".validate": "newData.isString() && newData.val().length > 0" },
         "lastLoggedIn": { ".validate": "newData.val() <= now" },
         "signedUp": { ".validate": "newData.val() <= now" },
         "role": {

@@ -21,7 +21,7 @@ const authMenu = [
 
 // Unauthenticated User Menu
 const unauthMenu = [
-  { title: 'Login', onPress: () => { Actions.login(); } },
+  { title: 'Login', onPress: () => { Actions.authenticate(); } },
   { title: 'Sign Up', onPress: () => { Actions.signUp(); } },
 ];
 

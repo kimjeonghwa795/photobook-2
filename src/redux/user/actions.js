@@ -251,6 +251,8 @@ export function updateProfile(formData = {}) {
   const email = formData.Email || '';
   const firstName = formData.FirstName || '';
   const lastName = formData.LastName || '';
+  const address1 = formData.Address1 || '';
+  const address2 = formData.Address2 || '';
 
   // Set the email against user account
   return () => Firebase.auth().currentUser
@@ -258,7 +260,7 @@ export function updateProfile(formData = {}) {
       .then(() => {
         // Then update user in DB
         FirebaseRef.child(`users/${UID}`).update({
-          firstName, lastName,
+          firstName, lastName, address1, address2
         });
       });
 }

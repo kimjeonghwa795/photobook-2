@@ -16,7 +16,7 @@ import FormRender from './FormView';
 const mapStateToProps = state => ({
   user: state.user,
   formType: 'updateProfile',
-  formFields: ['Email', 'FirstName', 'LastName'],
+  formFields: ['Email', 'FirstName', 'LastName', 'Address1', 'Address2'],
   buttonTitle: 'Update',
   successMessage: 'Great, that\'s been updated!',
 });

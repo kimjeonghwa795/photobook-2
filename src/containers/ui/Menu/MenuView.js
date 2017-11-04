@@ -129,7 +129,7 @@ class Menu extends Component {
           }
         });
       }else if (this.props.user.loginType === 'Google'){    
-        //Tech Debt
+        //Tech Debt: Async logout
         await GoogleSignIn.signOut();
         this.firebaseLogout();
       }else{

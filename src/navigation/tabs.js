@@ -18,11 +18,12 @@ import { NavbarMenuButton } from '@containers/ui/NavbarMenuButton/NavbarMenuButt
 // Scenes
 import Placeholder from '@components/general/Placeholder';
 import Error from '@components/general/Error';
-import Profile from '@containers/ProfileView';
+import Profile from '@containers/profile/ProfileView';
 import NewBook from '@containers/photobook/NewBook/NewBookContainer';
 import EditBook from '@containers/photobook/EditBook/EditBookContainer';
 import TemplateList from '@containers/photobook/Template/TemplateListContainer';
 import CardFormView from '@containers/profile/payment/CardFormView';
+import AboutUsView from '@containers/profile/aboutus/AboutUsView';
 
 const navbarPropsTabs = {
   ...AppConfig.navbarProps,
@@ -86,15 +87,24 @@ const scenes = (
       icon={props => TabIcon({ ...props, icon: 'person' })}
       analyticsDesc={'Profile: Profile'}
     />
-
-    {/*<Scene
+    {
+      //Tech Debt: Nested Scene
+    }
+    <Scene
       key={'CardForm'}
       {...navbarPropsTabs}
-      title={'CardForm'}
+      title={'Card Form'}
       component={CardFormView}
-      icon={props => TabIcon({ ...props, icon: 'person' })}
       analyticsDesc={'ApplePay'}
-    />*/}
+    />
+
+    <Scene
+      key={'AboutUs'}
+      {...navbarPropsTabs}
+      title={'About Us'}
+      component={AboutUsView}
+      analyticsDesc={'AboutUs'}
+    />
   </Scene>
 );
 

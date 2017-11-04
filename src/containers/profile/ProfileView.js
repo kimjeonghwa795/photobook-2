@@ -26,10 +26,10 @@ import {
 
 // Rows
 const rows = [
-  { title: 'Settings', icon: 'build' },
-  { title: 'Payment', icon: 'payment' },
-  { title: 'Address', icon: 'map' },
-  { title: 'Help', icon: 'help' },
+  { title: 'Update Profile', icon: 'build', action: () => { Actions.updateProfile(); } },
+  { title: 'Change Password', icon: 'map', action:() => { Actions.passwordReset(); } },
+  { title: 'Payment', icon: 'payment', action:() => { Actions.CardForm(); } },
+  { title: 'About Us', icon: 'help', action:() => { Actions.AboutUs(); } },
 ];
 
 /* Styles ==================================================================== */
@@ -63,7 +63,7 @@ class Profile extends Component {
   renderRow = (data, sectionID) => (
     <ListItem
       key={`list-row-${sectionID}`}
-      onPress={Actions.comingSoon}
+      onPress={data.action}
       title={data.title}
       subtitle={data.role || null}
       leftIcon={data.icon ? { name: data.icon } : null}

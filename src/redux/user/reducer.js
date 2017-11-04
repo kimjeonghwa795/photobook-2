@@ -30,6 +30,8 @@ export default function userReducer(state = initialState, action) {
           ...state,
           firstName: input.firstName,
           lastName: input.lastName,
+          address1: input.address1,
+          address2: input.address2,
           signedUp: input.signedUp,
           role: input.role,
         };

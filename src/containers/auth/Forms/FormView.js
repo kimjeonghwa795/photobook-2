@@ -32,6 +32,8 @@ class AuthForm extends Component {
       email: PropTypes.string,
       firstName: PropTypes.string,
       lastName: PropTypes.string,
+      address1: PropTypes.string,
+      address2: PropTypes.string,
     }),
     submit: PropTypes.func,
     onSuccessfulSubmit: PropTypes.func,
@@ -65,6 +67,8 @@ class AuthForm extends Component {
     if (props.formFields.indexOf('ConfirmPassword') > -1) formFields.ConfirmPassword = this.validPassword;
     if (props.formFields.indexOf('FirstName') > -1) formFields.FirstName = FormValidation.String;
     if (props.formFields.indexOf('LastName') > -1) formFields.LastName = FormValidation.String;
+    if (props.formFields.indexOf('Address1') > -1) formFields.Address1 = FormValidation.String;
+    if (props.formFields.indexOf('Address2') > -1) formFields.Address2 = FormValidation.String;
 
     this.state = {
       resultMsg: {
@@ -77,6 +81,8 @@ class AuthForm extends Component {
         Email: (props.user && props.user.email) ? props.user.email : '',
         FirstName: (props.user && props.user.firstName) ? props.user.firstName : '',
         LastName: (props.user && props.user.lastName) ? props.user.lastName : '',
+        Address1: (props.user && props.user.address1) ? props.user.address1 : '',
+        Address2: (props.user && props.user.address2) ? props.user.address2 : '',
       },
       options: {
         fields: {
@@ -105,7 +111,19 @@ class AuthForm extends Component {
           },
           LastName: {
             template: TcombTextInput,
-            error: 'Please enter your first name',
+            error: 'Please enter your last name',
+            clearButtonMode: 'while-editing',
+          },
+          Address1: {
+            template: TcombTextInput,
+            label: 'Address line 1',
+            error: 'Please enter your address',
+            clearButtonMode: 'while-editing',
+          },
+          Address2: {
+            template: TcombTextInput,
+            label: 'Address line 2',
+            error: 'Please enter your address',
             clearButtonMode: 'while-editing',
           },
         },
