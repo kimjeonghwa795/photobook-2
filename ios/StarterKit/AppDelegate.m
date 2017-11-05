@@ -13,6 +13,7 @@
 #import <React/RCTRootView.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <Stripe/Stripe.h>
 
 @implementation AppDelegate
 
@@ -66,21 +67,28 @@
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
-  BOOL wasHandled=false;
-  if ([url.scheme hasPrefix:@"fb"]) {
-    
-    wasHandled =[[FBSDKApplicationDelegate sharedInstance] application:application
-                                                               openURL:url
-                                                     sourceApplication:sourceApplication
-                                                            annotation:annotation];
-  }
-  else
-  {
-    wasHandled=  [[GIDSignIn sharedInstance] handleURL:url
-                                     sourceApplication:sourceApplication
-                                            annotation:annotation];
-  }
   
+  BOOL stripeHandled = [Stripe handleStripeURLCallbackWithURL:url];
+  BOOL wasHandled=false;
+
+  
+  if (stripeHandled) {
+    return YES;
+  } else {
+    if ([url.scheme hasPrefix:@"fb"]) {
+      wasHandled = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                                 openURL:url
+                                                       sourceApplication:sourceApplication
+                                                              annotation:annotation];
+    }
+    else
+    {
+      wasHandled=  [[GIDSignIn sharedInstance] handleURL:url
+                                       sourceApplication:sourceApplication
+                                              annotation:annotation];
+    }
+  }
+
   return wasHandled;
 }
 

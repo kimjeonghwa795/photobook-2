@@ -16,13 +16,13 @@ PODS:
     - GoogleSymbolUtilities (~> 1.1)
   - QBImagePickerController (3.4.0)
   - RSKImageCropper (1.6.3)
-  - Stripe (10.1.0)
+  - Stripe (11.2.0)
 
 DEPENDENCIES:
   - GoogleSignIn
   - QBImagePickerController
   - RSKImageCropper
-  - Stripe (~> 10.1.0)
+  - Stripe (~> 11.2.0)
 
 SPEC CHECKSUMS:
   GoogleAppUtilities: a8a552aa74f6597f805e45b5a3962766c3134973
@@ -33,8 +33,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
   QBImagePickerController: d54cf93db6decf26baf6ed3472f336ef35cae022
   RSKImageCropper: 356e36fc58c57c371b5d8b23d603936d6a73df6c
-  Stripe: 1c7aa951a075cced500a919d92b687b35d410705
+  Stripe: 898f83a95d72180c6eb4acd65b2ae6158fc6a8bd
 
-PODFILE CHECKSUM: 642aae4fcb0131571f129859a4a77c35223541fe
+PODFILE CHECKSUM: 8812b99f42b8f96b0d59c2d7fdc032ada834a633
 
 COCOAPODS: 1.3.1
